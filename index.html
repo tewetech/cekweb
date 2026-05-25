@@ -60,6 +60,18 @@ background: transparent;
 background: #cbd5e1;
 border-radius: 4px;
 }
+@media (min-width: 768px) {
+::-webkit-scrollbar {
+display: none;
+}
+* {
+-ms-overflow-style: none;
+scrollbar-width: none;
+}
+.custom-scrollbar::-webkit-scrollbar {
+display: none;
+}
+}
 .active-tab {
 color: #079790 !important;
 background-color: rgba(7, 151, 144, 0.1) !important;
@@ -174,6 +186,7 @@ border: 1px solid rgba(255, 255, 255, 0.3);
 .float-container { position: relative; width: 100%; }
 .float-input {
 width: 100%;
+height: 49px;
 padding: 22px 16px 6px 16px !important;
 background-color: #ffffff !important;
 border: 1px solid #e2e8f0 !important;
@@ -220,6 +233,7 @@ color: #079790;
 }
 textarea.float-input {
 resize: none;
+height: auto;
 padding-top: 24px !important;
 }
 textarea.float-input ~ .float-label {
@@ -264,13 +278,17 @@ font-size: 9px;
 <h1 class="text-[12px] font-heading font-black tracking-tight text-[#1e293b] mb-1.5">FORMULIR <span class="text-[#079790]">MEMPELAI</span></h1>
 <div class="flex gap-2">
 <p class="bg-gray-100 text-[#079790] text-[8px] font-bold px-3 py-1 rounded-full border border-gray-200">Formulir Untuk Mempelai</p>
+<p id="rowIndicatorMobile" class="hidden bg-teal-50 text-[#079790] text-[8px] font-bold px-3 py-1 rounded-full border border-teal-200"></p>
 </div>
 </header>
 
 <aside class="hidden md:flex w-52 lg:w-64 h-full shrink-0 flex-col z-40 relative bg-white shadow-[2px_0_10px_rgba(0,0,0,0.03)] border-r border-gray-100">
 <div class="flex flex-col items-center justify-center mt-10 mb-8">
 <h1 class="text-[14px] md:text-[20px] font-heading font-black tracking-tight text-[#1e293b]">FORMULIR<span class="text-[#079790]"> MEMPELAI</span></h1>
-<p class="bg-gray-100 text-[#079790] text-[9px] md:text-[10px] font-bold px-4 py-1.5 mt-3 rounded-full border border-gray-200">Formulir Untuk Mempelai</p>
+<div class="flex gap-2 mt-3">
+<p class="bg-gray-100 text-[#079790] text-[9px] md:text-[10px] font-bold px-4 py-1.5 rounded-full border border-gray-200">Formulir Untuk Mempelai</p>
+<p id="rowIndicatorDesktop" class="hidden bg-teal-50 text-[#079790] text-[9px] md:text-[10px] font-bold px-4 py-1.5 rounded-full border border-teal-200"></p>
+</div>
 </div>
 <nav class="flex flex-col gap-3 px-5 w-full mt-2 flex-1 overflow-y-auto">
 <button type="button" onclick="switchTab('mempelai')" class="tab-btn btn-tab-mempelai flex items-center py-3.5 px-5 rounded-2xl text-[11px] md:text-[14px] font-bold tracking-wide active-tab transition-all gap-4 w-full text-[#64748b]">
@@ -286,7 +304,7 @@ font-size: 9px;
 <i class="fas fa-gift w-5 text-center md:text-[16px]"></i> <span>Kado</span>
 </button>
 <div class="w-full h-[1px] bg-gray-200 my-2"></div>
-<button type="button" onclick="tampilkanKonfirmasi()" id="btnSubmitDesktop" class="flex items-center py-4 px-5 rounded-2xl text-[12px] md:text-[14px] font-extrabold tracking-wide text-white bg-[#079790] hover:bg-[#06827c] shadow-md shadow-[#079790]/20 transition-all gap-4 w-full">
+<button type="button" onclick="tampilkanKonfirmasi()" id="btnSubmitDesktop" class="flex items-center justify-center py-4 px-5 rounded-2xl text-[12px] md:text-[14px] font-extrabold tracking-wide text-white bg-[#079790] hover:bg-[#06827c] shadow-md shadow-[#079790]/20 transition-all gap-2 w-full">
 <i class="fas fa-save w-5 text-center md:text-[18px]"></i> <span>SIMPAN</span>
 </button>
 <button type="button" onclick="logout()" id="btnLogoutDesktop" class="flex items-center py-4 px-5 mt-1 rounded-2xl text-[12px] md:text-[14px] font-extrabold tracking-wide text-[#ef4444] bg-red-50 hover:bg-red-100 border border-red-100 transition-all w-full justify-center">
@@ -313,95 +331,10 @@ font-size: 9px;
 <form id="mainForm" class="w-full h-full flex-col hidden overflow-y-auto md:overflow-hidden pb-8 md:pb-8 p-4 md:p-8 pt-4 max-w-5xl mx-auto relative z-10">
 
 <div id="section-mempelai" class="tab-content flex-col w-full h-full">
-<div class="bg-white shadow-sm border border-gray-100 rounded-[30px] p-6 md:p-8 w-full mb-6 shrink-0">
-<h2 class="text-[14px] md:text-[18px] font-heading font-bold text-[#1e293b] mb-4 text-center">PILIH KODE UNDANGAN</h2>
-<div class="grid grid-cols-5 md:grid-cols-10 gap-2 w-full mx-auto">
-<label class="cursor-pointer">
-<input type="radio" name="kodeUndangan" value="U1" checked onchange="loadDataByKode(this.value)" class="peer sr-only">
-<div class="py-2 text-center text-[12px] font-bold rounded-xl border border-gray-200 text-[#64748b] peer-checked:bg-[#079790] peer-checked:text-white peer-checked:border-[#079790] transition-all">U1</div>
-</label>
-<label class="cursor-pointer">
-<input type="radio" name="kodeUndangan" value="U2" onchange="loadDataByKode(this.value)" class="peer sr-only">
-<div class="py-2 text-center text-[12px] font-bold rounded-xl border border-gray-200 text-[#64748b] peer-checked:bg-[#079790] peer-checked:text-white peer-checked:border-[#079790] transition-all">U2</div>
-</label>
-<label class="cursor-pointer">
-<input type="radio" name="kodeUndangan" value="U3" onchange="loadDataByKode(this.value)" class="peer sr-only">
-<div class="py-2 text-center text-[12px] font-bold rounded-xl border border-gray-200 text-[#64748b] peer-checked:bg-[#079790] peer-checked:text-white peer-checked:border-[#079790] transition-all">U3</div>
-</label>
-<label class="cursor-pointer">
-<input type="radio" name="kodeUndangan" value="U4" onchange="loadDataByKode(this.value)" class="peer sr-only">
-<div class="py-2 text-center text-[12px] font-bold rounded-xl border border-gray-200 text-[#64748b] peer-checked:bg-[#079790] peer-checked:text-white peer-checked:border-[#079790] transition-all">U4</div>
-</label>
-<label class="cursor-pointer">
-<input type="radio" name="kodeUndangan" value="U5" onchange="loadDataByKode(this.value)" class="peer sr-only">
-<div class="py-2 text-center text-[12px] font-bold rounded-xl border border-gray-200 text-[#64748b] peer-checked:bg-[#079790] peer-checked:text-white peer-checked:border-[#079790] transition-all">U5</div>
-</label>
-<label class="cursor-pointer">
-<input type="radio" name="kodeUndangan" value="U6" onchange="loadDataByKode(this.value)" class="peer sr-only">
-<div class="py-2 text-center text-[12px] font-bold rounded-xl border border-gray-200 text-[#64748b] peer-checked:bg-[#079790] peer-checked:text-white peer-checked:border-[#079790] transition-all">U6</div>
-</label>
-<label class="cursor-pointer">
-<input type="radio" name="kodeUndangan" value="U7" onchange="loadDataByKode(this.value)" class="peer sr-only">
-<div class="py-2 text-center text-[12px] font-bold rounded-xl border border-gray-200 text-[#64748b] peer-checked:bg-[#079790] peer-checked:text-white peer-checked:border-[#079790] transition-all">U7</div>
-</label>
-<label class="cursor-pointer">
-<input type="radio" name="kodeUndangan" value="U8" onchange="loadDataByKode(this.value)" class="peer sr-only">
-<div class="py-2 text-center text-[12px] font-bold rounded-xl border border-gray-200 text-[#64748b] peer-checked:bg-[#079790] peer-checked:text-white peer-checked:border-[#079790] transition-all">U8</div>
-</label>
-<label class="cursor-pointer">
-<input type="radio" name="kodeUndangan" value="U9" onchange="loadDataByKode(this.value)" class="peer sr-only">
-<div class="py-2 text-center text-[12px] font-bold rounded-xl border border-gray-200 text-[#64748b] peer-checked:bg-[#079790] peer-checked:text-white peer-checked:border-[#079790] transition-all">U9</div>
-</label>
-<label class="cursor-pointer">
-<input type="radio" name="kodeUndangan" value="U10" onchange="loadDataByKode(this.value)" class="peer sr-only">
-<div class="py-2 text-center text-[12px] font-bold rounded-xl border border-gray-200 text-[#64748b] peer-checked:bg-[#079790] peer-checked:text-white peer-checked:border-[#079790] transition-all">U10</div>
-</label>
-<label class="cursor-pointer">
-<input type="radio" name="kodeUndangan" value="U11" onchange="loadDataByKode(this.value)" class="peer sr-only">
-<div class="py-2 text-center text-[12px] font-bold rounded-xl border border-gray-200 text-[#64748b] peer-checked:bg-[#079790] peer-checked:text-white peer-checked:border-[#079790] transition-all">U11</div>
-</label>
-<label class="cursor-pointer">
-<input type="radio" name="kodeUndangan" value="U12" onchange="loadDataByKode(this.value)" class="peer sr-only">
-<div class="py-2 text-center text-[12px] font-bold rounded-xl border border-gray-200 text-[#64748b] peer-checked:bg-[#079790] peer-checked:text-white peer-checked:border-[#079790] transition-all">U12</div>
-</label>
-<label class="cursor-pointer">
-<input type="radio" name="kodeUndangan" value="U13" onchange="loadDataByKode(this.value)" class="peer sr-only">
-<div class="py-2 text-center text-[12px] font-bold rounded-xl border border-gray-200 text-[#64748b] peer-checked:bg-[#079790] peer-checked:text-white peer-checked:border-[#079790] transition-all">U13</div>
-</label>
-<label class="cursor-pointer">
-<input type="radio" name="kodeUndangan" value="U14" onchange="loadDataByKode(this.value)" class="peer sr-only">
-<div class="py-2 text-center text-[12px] font-bold rounded-xl border border-gray-200 text-[#64748b] peer-checked:bg-[#079790] peer-checked:text-white peer-checked:border-[#079790] transition-all">U14</div>
-</label>
-<label class="cursor-pointer">
-<input type="radio" name="kodeUndangan" value="U15" onchange="loadDataByKode(this.value)" class="peer sr-only">
-<div class="py-2 text-center text-[12px] font-bold rounded-xl border border-gray-200 text-[#64748b] peer-checked:bg-[#079790] peer-checked:text-white peer-checked:border-[#079790] transition-all">U15</div>
-</label>
-<label class="cursor-pointer">
-<input type="radio" name="kodeUndangan" value="U16" onchange="loadDataByKode(this.value)" class="peer sr-only">
-<div class="py-2 text-center text-[12px] font-bold rounded-xl border border-gray-200 text-[#64748b] peer-checked:bg-[#079790] peer-checked:text-white peer-checked:border-[#079790] transition-all">U16</div>
-</label>
-<label class="cursor-pointer">
-<input type="radio" name="kodeUndangan" value="U17" onchange="loadDataByKode(this.value)" class="peer sr-only">
-<div class="py-2 text-center text-[12px] font-bold rounded-xl border border-gray-200 text-[#64748b] peer-checked:bg-[#079790] peer-checked:text-white peer-checked:border-[#079790] transition-all">U17</div>
-</label>
-<label class="cursor-pointer">
-<input type="radio" name="kodeUndangan" value="U18" onchange="loadDataByKode(this.value)" class="peer sr-only">
-<div class="py-2 text-center text-[12px] font-bold rounded-xl border border-gray-200 text-[#64748b] peer-checked:bg-[#079790] peer-checked:text-white peer-checked:border-[#079790] transition-all">U18</div>
-</label>
-<label class="cursor-pointer">
-<input type="radio" name="kodeUndangan" value="U19" onchange="loadDataByKode(this.value)" class="peer sr-only">
-<div class="py-2 text-center text-[12px] font-bold rounded-xl border border-gray-200 text-[#64748b] peer-checked:bg-[#079790] peer-checked:text-white peer-checked:border-[#079790] transition-all">U19</div>
-</label>
-<label class="cursor-pointer">
-<input type="radio" name="kodeUndangan" value="U20" onchange="loadDataByKode(this.value)" class="peer sr-only">
-<div class="py-2 text-center text-[12px] font-bold rounded-xl border border-gray-200 text-[#64748b] peer-checked:bg-[#079790] peer-checked:text-white peer-checked:border-[#079790] transition-all">U20</div>
-</label>
-</div>
-</div>
 <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 mb-6 md:flex-1 md:min-h-0 shrink-0 md:shrink">
 <div class="bg-white shadow-sm border border-gray-100 rounded-[30px] p-6 md:p-8 w-full md:h-full md:overflow-y-auto custom-scrollbar">
 <h2 class="flex items-center justify-center text-[14px] md:text-[18px] font-heading font-bold text-[#1e293b] mb-6 md:mb-8 text-center">
-<i class="fas fa-person-dress text-pink-500 mr-2 text-[18px] md:text-[22px]"></i> DATA WANITA
+<i class="fas fa-person-dress text-pink-500 mr-2 text-[18px] md:text-[22px]"></i> MEMPELAI WANITA
 </h2>
 <div class="space-y-5">
 <div class="float-container">
@@ -429,7 +362,7 @@ font-size: 9px;
 
 <div class="bg-white shadow-sm border border-gray-100 rounded-[30px] p-6 md:p-8 w-full md:h-full md:overflow-y-auto custom-scrollbar">
 <h2 class="flex items-center justify-center text-[14px] md:text-[18px] font-heading font-bold text-[#1e293b] mb-6 md:mb-8 text-center">
-<i class="fas fa-person text-blue-500 mr-2 text-[18px] md:text-[22px]"></i> DATA PRIA
+<i class="fas fa-person text-blue-500 mr-2 text-[18px] md:text-[22px]"></i> MEMPELAI PRIA
 </h2>
 <div class="space-y-5">
 <div class="float-container">
@@ -460,7 +393,6 @@ font-size: 9px;
 <div id="section-media" class="tab-content hidden flex-col w-full h-full">
 <div class="bg-white shadow-sm border border-gray-100 rounded-[30px] p-6 md:p-8 w-full md:h-full md:overflow-y-auto custom-scrollbar">
 <h2 class="text-[14px] md:text-[18px] font-heading font-bold text-[#1e293b] mb-4 text-center">MEDIA FOTO</h2>
-<p class="text-[10px] md:text-[12px] text-red-500 font-bold text-center mb-6">Kosongkan jika tidak ingin merubah foto saat proses edit.</p>
 <div class="grid grid-cols-1 md:grid-cols-3 gap-6 w-full">
 <div class="relative bg-white border border-[#e2e8f0] rounded-xl p-4 pt-8 shadow-sm transition-all hover:border-[#079790]">
 <label class="absolute left-4 top-3 text-[10px] md:text-[11px] font-bold text-[#079790]"><i class="fas fa-female text-pink-500 mr-2"></i>Foto Pengantin Wanita</label>
@@ -477,7 +409,7 @@ font-size: 9px;
 </div>
 </div>
 <div class="relative bg-white border border-[#e2e8f0] rounded-xl p-4 pt-8 shadow-sm transition-all hover:border-[#079790]">
-<label class="absolute left-4 top-3 text-[10px] md:text-[11px] font-bold text-[#079790]"><i class="fas fa-images text-[#079790] mr-2"></i>Foto Album (Bisa Banyak)</label>
+<label class="absolute left-4 top-3 text-[10px] md:text-[11px] font-bold text-[#079790]"><i class="fas fa-images text-[#079790] mr-2"></i>Foto Album (Opsional)</label>
 <input type="file" id="linkFolderAlbum" accept="image/*" multiple class="w-full mt-1">
 <div id="previewFotoAlbum" class="mt-4 hidden flex-wrap gap-3 p-3 bg-gray-50 border border-gray-200 rounded-2xl w-full"></div>
 </div>
@@ -545,6 +477,7 @@ font-size: 9px;
 <option value="Bank Tabungan Negara (BTN)">Bank Tabungan Negara (BTN)</option>
 <option value="Bank Central Asia (BCA)">Bank Central Asia (BCA)</option>
 <option value="Bank CIMB Niaga">Bank CIMB Niaga</option>
+<option value="SeaBank">SeaBank</option>
 <option value="DANA">DANA</option>
 <option value="OVO">OVO</option>
 <option value="GoPay">GoPay</option>
@@ -561,7 +494,7 @@ font-size: 9px;
 <label class="float-label">Atas Nama</label>
 </div>
 <div class="md:col-span-1">
-<button type="button" onclick="tambahKado()" class="w-full py-4 md:py-4 bg-gray-50 hover:bg-gray-100 border border-gray-200 text-[#079790] rounded-xl text-[11px] md:text-[13px] font-extrabold uppercase tracking-widest transition-colors h-[54px] md:h-[60px]">
+<button type="button" onclick="tambahKado()" class="w-full h-[49px] md:h-[49px] bg-gray-50 hover:bg-gray-100 border border-gray-200 text-[#079790] rounded-xl text-[11px] md:text-[13px] font-extrabold uppercase tracking-widest transition-colors flex justify-center items-center">
 Tambah Kado
 </button>
 </div>
@@ -582,10 +515,10 @@ Tambah Kado
 </div>
 </form>
 
-<div id="mobileActionNav" class="md:hidden w-full px-4 pb-4 bg-[#f8fafc] z-20 shrink-0">
-<button type="button" id="btnNextMobile" onclick="nextTabMobile()" class="w-full py-4 rounded-full bg-[#079790] hover:bg-[#06827c] text-white shadow-md font-bold text-[13px] uppercase tracking-wider transition-all">Selanjutnya</button>
-<button type="button" id="btnSubmitMobile" onclick="tampilkanKonfirmasi()" class="hidden w-full py-4 rounded-full bg-[#079790] hover:bg-[#06827c] text-white shadow-md font-bold text-[13px] uppercase tracking-wider transition-all justify-center items-center gap-2">
-<i class="fas fa-save text-[16px]"></i> Simpan Formulir
+<div id="mobileActionNav" class="md:hidden w-full flex justify-center px-4 pb-4 bg-[#f8fafc] z-20 shrink-0">
+<button type="button" id="btnNextMobile" onclick="nextTabMobile()" class="w-11/12 py-3 rounded-full bg-[#079790] hover:bg-[#06827c] text-white shadow-md font-bold text-[12px] uppercase tracking-wider transition-all">Selanjutnya</button>
+<button type="button" id="btnSubmitMobile" onclick="tampilkanKonfirmasi()" class="hidden w-11/12 py-3 rounded-full bg-[#079790] hover:bg-[#06827c] text-white shadow-md font-bold text-[12px] uppercase tracking-wider transition-all justify-center items-center gap-2">
+<i class="fas fa-save text-[15px]"></i> Simpan Formulir
 </button>
 </div>
 
@@ -635,7 +568,7 @@ Tambah Kado
 </div>
 
 <script>
-const gasUrl = "https://script.google.com/macros/s/AKfycbypxb2aKq0dtyovZy-3kZ7sA21bWG9DkXzfwjmUK5xD4MICahtodgRmp_AOv3UO6BUW/exec";
+const gasUrl = "https://script.google.com/macros/s/AKfycbxImqudXsk2Yge6K5bXavVzyEuBcJ6_UbojjPGLWsyd5Bu0Gpk4CVJLSFvlknNC6PuW/exec";
 let dataKado = [];
 let editRowId = null;
 let currentUserPhone = localStorage.getItem('userPhone');
@@ -646,25 +579,7 @@ let currentTabIndex = 0;
 if (currentUserPhone) {
 document.getElementById('authScreen').classList.add('hidden');
 switchTab('mempelai');
-let savedKode = localStorage.getItem('savedKode_' + currentUserPhone);
-let initialKode = savedKode ? savedKode : document.querySelector('input[name="kodeUndangan"]:checked').value;
-if(savedKode) kunciKode(savedKode);
-loadDataByKode(initialKode);
-}
-
-function kunciKode(kode) {
-document.querySelectorAll('input[name="kodeUndangan"]').forEach(radio => {
-if(radio.value !== kode) {
-radio.disabled = true;
-radio.parentElement.classList.add('opacity-50', 'pointer-events-none');
-radio.nextElementSibling.classList.remove('text-[#64748b]', 'border-gray-200');
-radio.nextElementSibling.classList.add('bg-gray-100', 'text-gray-400', 'border-gray-100');
-} else {
-radio.checked = true;
-radio.nextElementSibling.classList.add('text-[#64748b]', 'border-gray-200');
-radio.nextElementSibling.classList.remove('bg-gray-100', 'text-gray-400', 'border-gray-100');
-}
-});
+loadDataByKode();
 }
 
 function switchAuth(mode) {
@@ -707,10 +622,7 @@ localStorage.setItem('userPhone', result.phone);
 currentUserPhone = result.phone;
 document.getElementById('authScreen').classList.add('hidden');
 switchTab('mempelai');
-let savedKode = localStorage.getItem('savedKode_' + currentUserPhone);
-let initialKode = savedKode ? savedKode : document.querySelector('input[name="kodeUndangan"]:checked').value;
-if(savedKode) kunciKode(savedKode);
-loadDataByKode(initialKode);
+loadDataByKode();
 } else {
 tampilkanModal(result.message, false);
 }
@@ -727,14 +639,8 @@ localStorage.removeItem('userPhone');
 currentUserPhone = null;
 document.getElementById('mainForm').reset();
 document.getElementById('authPhone').value = '';
+resetFormFields();
 document.getElementById('authScreen').classList.remove('hidden');
-document.querySelectorAll('input[name="kodeUndangan"]').forEach(radio => {
-radio.disabled = false;
-radio.parentElement.classList.remove('opacity-50', 'pointer-events-none');
-radio.nextElementSibling.classList.add('text-[#64748b]', 'border-gray-200');
-radio.nextElementSibling.classList.remove('bg-gray-100', 'text-gray-400', 'border-gray-100');
-});
-document.querySelector('input[name="kodeUndangan"][value="U1"]').checked = true;
 }
 
 function extractDriveId(url) {
@@ -750,6 +656,7 @@ const logos = {
 "Bank Tabungan Negara (BTN)": "https://upload.wikimedia.org/wikipedia/commons/f/fd/Bank_BTN_logo.svg",
 "Bank Central Asia (BCA)": "https://upload.wikimedia.org/wikipedia/commons/5/5c/Bank_Central_Asia.svg",
 "Bank CIMB Niaga": "https://upload.wikimedia.org/wikipedia/commons/3/38/CIMB_Niaga_logo.svg",
+"SeaBank": "https://upload.wikimedia.org/wikipedia/commons/a/ac/SeaBank.svg",
 "DANA": "https://upload.wikimedia.org/wikipedia/commons/7/72/Logo_dana_blue.svg",
 "OVO": "https://upload.wikimedia.org/wikipedia/commons/e/eb/Logo_ovo_purple.svg",
 "GoPay": "https://upload.wikimedia.org/wikipedia/commons/8/86/Gopay_logo.svg",
@@ -930,19 +837,35 @@ document.getElementById('jamResepsi').value = '';
 document.getElementById('alamatResepsi').value = '';
 document.getElementById('mapResepsi').value = '';
 document.getElementById('noHpWa').value = '';
+document.getElementById('rowIndicatorMobile').classList.add('hidden');
+document.getElementById('rowIndicatorDesktop').classList.add('hidden');
+document.getElementById('rowIndicatorMobile').textContent = '';
+document.getElementById('rowIndicatorDesktop').textContent = '';
 dataKado = [];
 renderTabelKado();
 }
 
-async function loadDataByKode(kode) {
+async function loadDataByKode() {
 if (!currentUserPhone) return;
-tampilkanModal('Memuat data ' + kode + '...', true);
+tampilkanModal('Memuat data undangan...', true);
 try {
-const response = await fetch(gasUrl + '?action=getData&kode=' + kode + '&phone=' + currentUserPhone);
+const response = await fetch(gasUrl + '?action=getData&kode=Undangan&phone=' + currentUserPhone);
 const result = await response.json();
 tutupModal();
 if (result.status === 'success') {
 editRowId = result.row;
+
+const rowIndMobile = document.getElementById('rowIndicatorMobile');
+const rowIndDesktop = document.getElementById('rowIndicatorDesktop');
+if(rowIndMobile) {
+rowIndMobile.textContent = 'Line ' + result.row;
+rowIndMobile.classList.remove('hidden');
+}
+if(rowIndDesktop) {
+rowIndDesktop.textContent = 'Line ' + result.row;
+rowIndDesktop.classList.remove('hidden');
+}
+
 document.getElementById('namaLengkapWanita').value = result.wanita.namaLengkap || '';
 document.getElementById('namaPanggilanWanita').value = result.wanita.namaPanggilan || '';
 document.getElementById('ayahWanita').value = result.wanita.ayah || '';
@@ -1089,7 +1012,7 @@ if(waFinal.startsWith('0')) {
 waFinal = '62' + waFinal.substring(1);
 }
 
-const activeKode = document.querySelector('input[name="kodeUndangan"]:checked').value;
+const activeKode = "Undangan";
 
 const configData = {
 action: 'save',
@@ -1140,10 +1063,8 @@ body: JSON.stringify(configData)
 
 const result = await response.json();
 if(result.status === 'success') {
-localStorage.setItem('savedKode_' + currentUserPhone, activeKode);
-kunciKode(activeKode);
 tampilkanModal('Data berhasil disimpan ke Spreadsheet dan Drive!', false);
-loadDataByKode(activeKode);
+loadDataByKode();
 } else {
 tampilkanModal('Terjadi kesalahan: ' + result.message, false);
 }
