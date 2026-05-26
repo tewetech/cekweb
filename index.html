@@ -19,9 +19,9 @@ mono: ['JetBrains Mono', 'monospace'],
 },
 colors: {
 neu: {
-primary: '#079790',
-text: '#1e293b',
-light: '#64748b'
+primary: '#2a9d8f',
+text: '#334155',
+light: '#71717a'
 }
 }
 }
@@ -31,7 +31,7 @@ light: '#64748b'
 <style>
 body {
 background-color: #f8fafc;
-color: #1e293b;
+color: #334155;
 font-family: 'Quicksand', sans-serif;
 overflow: hidden;
 }
@@ -73,8 +73,8 @@ display: none;
 }
 }
 .active-tab {
-color: #079790 !important;
-background-color: rgba(7, 151, 144, 0.1) !important;
+color: #2a9d8f !important;
+background-color: rgba(42, 157, 143, 0.1) !important;
 }
 input[type="file"] {
 padding: 0.5rem !important;
@@ -93,7 +93,7 @@ background: #f1f5f9;
 border: 1px solid #e2e8f0;
 padding: 0.5rem 1rem;
 border-radius: 999px;
-color: #079790;
+color: #2a9d8f;
 font-weight: bold;
 cursor: pointer;
 margin-right: 1rem;
@@ -147,9 +147,9 @@ z-index: 10;
 border: 2px solid transparent;
 }
 .tl-dot.active {
-background-color: #079790;
+background-color: #2a9d8f;
 color: white;
-box-shadow: 0 4px 6px -1px rgba(7, 151, 144, 0.3);
+box-shadow: 0 4px 6px -1px rgba(42, 157, 143, 0.3);
 }
 .tl-dot.inactive {
 background-color: #ffffff;
@@ -161,7 +161,7 @@ position: absolute;
 top: 50%;
 left: 0;
 height: 4px;
-background-color: #079790;
+background-color: #2a9d8f;
 transform: translateY(-50%);
 z-index: 5;
 transition: all 0.3s ease;
@@ -194,14 +194,14 @@ border-radius: 1rem !important;
 font-family: 'Quicksand', sans-serif !important;
 font-size: 13px !important;
 font-weight: 600 !important;
-color: #1e293b !important;
+color: #334155 !important;
 transition: all 0.2s ease;
 appearance: none;
 box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05) !important;
 }
 .float-input:focus {
-border-color: #079790 !important;
-box-shadow: 0 0 0 3px rgba(7, 151, 144, 0.15) !important;
+border-color: #2a9d8f !important;
+box-shadow: 0 0 0 3px rgba(42, 157, 143, 0.15) !important;
 outline: none;
 }
 .float-input:disabled {
@@ -217,7 +217,7 @@ top: 50%;
 transform: translateY(-50%);
 font-size: 12px;
 font-weight: 700;
-color: #64748b;
+color: #71717a;
 pointer-events: none;
 transition: all 0.2s ease;
 }
@@ -229,7 +229,7 @@ select.float-input ~ .float-label {
 top: 8px;
 transform: translateY(0);
 font-size: 9px;
-color: #079790;
+color: #2a9d8f;
 }
 textarea.float-input {
 resize: none;
@@ -251,57 +251,57 @@ font-size: 9px;
 
 <div id="authScreen" class="fixed inset-0 z-[200] flex items-center justify-center bg-slate-900/60 backdrop-blur-md transition-opacity p-4">
 <div class="bg-white p-8 md:p-10 rounded-[30px] w-full max-w-[340px] md:max-w-[400px] shadow-2xl border border-gray-100 relative overflow-hidden">
-<div class="absolute top-0 left-0 w-full h-2 bg-[#079790]"></div>
+<div class="absolute top-0 left-0 w-full h-2 bg-[#2a9d8f]"></div>
 <div class="text-center mb-8 mt-2">
-<h2 class="text-[20px] md:text-[24px] font-heading font-black tracking-tight text-[#1e293b]">FORMULIR<span class="text-[#079790]"> MEMPELAI</span></h2>
-<p class="text-[#64748b] text-[12px] font-bold mt-1">semoga sakinah mawaddah warahmah</p>
+<h2 class="text-[20px] md:text-[24px] font-heading font-black tracking-tight text-[#334155]">FORMULIR<span class="text-[#2a9d8f]"> MEMPELAI</span></h2>
+<p class="text-[#71717a] text-[12px] font-bold mt-1">semoga sakinah mawaddah warahmah</p>
 </div>
 <div class="flex bg-gray-100 rounded-full p-1 mb-6">
-<button type="button" onclick="switchAuth('login')" id="btnAuthLogin" class="flex-1 py-2.5 text-[12px] font-bold rounded-full bg-white text-[#079790] shadow-sm transition-all">Masuk</button>
-<button type="button" onclick="switchAuth('register')" id="btnAuthRegister" class="flex-1 py-2.5 text-[12px] font-bold rounded-full text-[#64748b] transition-all">Daftar</button>
-<button type="button" onclick="switchAuth('admin')" id="btnAuthAdmin" class="flex-1 py-2.5 text-[12px] font-bold rounded-full text-[#64748b] transition-all">Admin</button>
+<button type="button" onclick="switchAuth('login')" id="btnAuthLogin" class="flex-1 py-2.5 text-[12px] font-bold rounded-full bg-white text-[#2a9d8f] shadow-sm transition-all">Masuk</button>
+<button type="button" onclick="switchAuth('register')" id="btnAuthRegister" class="flex-1 py-2.5 text-[12px] font-bold rounded-full text-[#71717a] transition-all">Daftar</button>
+<button type="button" onclick="switchAuth('admin')" id="btnAuthAdmin" class="flex-1 py-2.5 text-[12px] font-bold rounded-full text-[#71717a] transition-all">Admin</button>
 </div>
 <form id="authForm" onsubmit="event.preventDefault(); prosesAuth();" class="flex flex-col gap-5">
 <input type="hidden" id="authMode" value="login">
 <div class="float-container" id="phoneContainer">
 <div class="absolute inset-y-0 left-0 flex items-center pl-4 pointer-events-none md:hidden z-10">
-<i class="fas fa-phone-alt text-[#079790]"></i>
+<i class="fas fa-phone-alt text-[#2a9d8f]"></i>
 </div>
 <input type="text" inputmode="numeric" pattern="[0-9]*" oninput="this.value = this.value.replace(/[^0-9]/g, '')" id="authPhone" required class="float-input !pl-11 md:!pl-4" placeholder=" ">
 <label class="float-label !left-11 md:!left-4">Nomor HP (WhatsApp)</label>
 </div>
 <div class="float-container hidden" id="passwordContainer">
 <div class="absolute inset-y-0 left-0 flex items-center pl-4 pointer-events-none md:hidden z-10">
-<i class="fas fa-lock text-[#079790]"></i>
+<i class="fas fa-lock text-[#2a9d8f]"></i>
 </div>
 <input type="password" id="authPassword" class="float-input !pl-11 md:!pl-4" placeholder=" ">
 <label class="float-label !left-11 md:!left-4">Password Admin</label>
 </div>
-<button type="submit" id="btnSubmitAuth" class="w-full mt-2 py-4 rounded-full bg-[#079790] hover:bg-[#06827c] text-white shadow-md font-bold text-[13px] uppercase tracking-wider transition-all">Masuk</button>
+<button type="submit" id="btnSubmitAuth" class="w-full mt-2 py-4 rounded-full bg-[#2a9d8f] hover:bg-[#21867a] text-white shadow-md font-bold text-[13px] uppercase tracking-wider transition-all">Masuk</button>
 </form>
 </div>
 </div>
 
 <div id="adminDashboard" class="hidden fixed inset-0 z-[150] bg-[#f8fafc] flex-col w-full h-full pb-[75px] md:pb-0">
 <header class="w-full h-[65px] glass-panel shadow-sm border-b border-gray-200 flex items-center justify-between px-6 shrink-0">
-<h1 class="text-[14px] md:text-[18px] font-heading font-black text-[#1e293b]">ADMIN<span class="text-[#079790]"> PANEL</span></h1>
-<button onclick="logout()" class="hidden md:block text-red-500 font-bold text-[12px] px-4 py-2 hover:bg-red-50 rounded-full transition-colors"><i class="fas fa-sign-out-alt"></i> Keluar</button>
+<h1 class="text-[14px] md:text-[18px] font-heading font-black text-[#334155]">ADMIN<span class="text-[#2a9d8f]"> PANEL</span></h1>
+<button onclick="logout()" class="hidden md:block text-red-400 font-bold text-[12px] px-4 py-2 hover:bg-red-50 rounded-full transition-colors"><i class="fas fa-sign-out-alt"></i> Keluar</button>
 </header>
 <div class="p-4 md:p-8 flex-1 overflow-y-auto w-full max-w-5xl mx-auto custom-scrollbar">
 
 <div id="adminSectionPassword" class="admin-section hidden md:block bg-white rounded-[30px] p-6 shadow-sm border border-gray-100 mb-6">
-<h2 class="font-heading font-bold text-[16px] mb-4 text-[#1e293b]">Ganti Password Admin</h2>
+<h2 class="font-heading font-bold text-[16px] mb-4 text-[#334155]">Ganti Password Admin</h2>
 <div class="flex flex-col md:flex-row gap-4">
 <div class="float-container flex-1">
 <input type="password" id="newAdminPassword" class="float-input" placeholder=" ">
 <label class="float-label">Password Baru</label>
 </div>
-<button onclick="gantiPasswordAdmin()" id="btnGantiPass" class="bg-[#079790] hover:bg-[#06827c] text-white px-8 py-3 rounded-xl font-bold transition-all shadow-md">Simpan</button>
+<button onclick="gantiPasswordAdmin()" id="btnGantiPass" class="bg-[#2a9d8f] hover:bg-[#21867a] text-white px-8 py-3 rounded-xl font-bold transition-all shadow-md">Simpan</button>
 </div>
 </div>
 
 <div id="adminSectionData" class="admin-section md:block bg-white rounded-[30px] p-6 shadow-sm border border-gray-100">
-<h2 class="font-heading font-bold text-[16px] mb-4 text-[#1e293b] hidden md:block">Daftar User & Undangan</h2>
+<h2 class="font-heading font-bold text-[16px] mb-4 text-[#334155] hidden md:block">Daftar User & Undangan</h2>
 <div class="mb-5 float-container">
 <input type="text" id="searchAdmin" onkeyup="filterAdminData()" class="float-input" placeholder=" ">
 <label class="float-label">Cari Nama Pengantin / No HP</label>
@@ -309,7 +309,7 @@ font-size: 9px;
 
 <div class="hidden md:block overflow-x-auto custom-scrollbar">
 <table class="w-full text-left text-[12px] md:text-[13px] border-collapse min-w-[750px]">
-<thead class="bg-gray-50 text-[#64748b]">
+<thead class="bg-gray-50 text-[#71717a]">
 <tr>
 <th class="p-4 rounded-tl-xl font-bold text-center">Baris</th>
 <th class="p-4 font-bold">No HP</th>
@@ -332,53 +332,60 @@ font-size: 9px;
 </div>
 
 <nav id="adminMobileNav" class="hidden w-full h-[75px] shrink-0 md:hidden justify-around items-center px-1 z-[160] fixed bottom-0 glass-panel rounded-t-[2rem] shadow-[0_-4px_10px_rgba(0,0,0,0.03)] border-t border-gray-200">
-<button type="button" onclick="switchAdminTab('data')" class="admin-tab-btn btn-admin-data flex-1 flex flex-col items-center justify-center py-2 mx-0.5 rounded-2xl text-[9px] font-bold tracking-wide active-tab transition-all gap-1 h-12 text-[#64748b]">
+<button type="button" onclick="switchAdminTab('data')" class="admin-tab-btn btn-admin-data flex-1 flex flex-col items-center justify-center py-2 mx-0.5 rounded-2xl text-[9px] font-bold tracking-wide active-tab transition-all gap-1 h-12 text-[#71717a]">
 <i class="fas fa-users text-[14px] mb-0.5"></i> Data User
 </button>
-<button type="button" onclick="switchAdminTab('password')" class="admin-tab-btn btn-admin-password flex-1 flex flex-col items-center justify-center py-2 mx-0.5 rounded-2xl text-[9px] font-bold tracking-wide text-[#64748b] transition-all gap-1 h-12 hover:bg-gray-50/50">
+<button type="button" onclick="switchAdminTab('password')" class="admin-tab-btn btn-admin-password flex-1 flex flex-col items-center justify-center py-2 mx-0.5 rounded-2xl text-[9px] font-bold tracking-wide text-[#71717a] transition-all gap-1 h-12 hover:bg-gray-50/50">
 <i class="fas fa-key text-[14px] mb-0.5"></i> Password
 </button>
-<button type="button" onclick="logout()" class="admin-tab-btn flex-1 flex flex-col items-center justify-center py-2 mx-0.5 rounded-2xl text-[9px] font-extrabold tracking-wide text-red-500 transition-all gap-1 h-12 hover:bg-red-50">
+<button type="button" onclick="logout()" class="admin-tab-btn flex-1 flex flex-col items-center justify-center py-2 mx-0.5 rounded-2xl text-[9px] font-extrabold tracking-wide text-red-400 transition-all gap-1 h-12 hover:bg-red-50">
 <i class="fas fa-sign-out-alt text-[14px] mb-0.5"></i> Keluar
 </button>
 </nav>
 
 <header class="w-full h-[65px] shrink-0 flex flex-col md:hidden items-center justify-center z-40 relative glass-panel shadow-sm border-b border-gray-200" id="userHeaderMobile">
-<h1 class="text-[12px] font-heading font-black tracking-tight text-[#1e293b] mb-1.5">FORMULIR <span class="text-[#079790]">MEMPELAI</span></h1>
+<h1 class="text-[12px] font-heading font-black tracking-tight text-[#334155] mb-1.5">FORMULIR <span class="text-[#2a9d8f]">MEMPELAI</span></h1>
 <div class="flex gap-2 items-center">
-<p class="bg-gray-100 text-[#079790] text-[8px] font-bold px-3 py-1 rounded-full border border-gray-200">Formulir Untuk Mempelai</p>
-<p id="rowIndicatorMobile" class="hidden bg-teal-50 text-[#079790] text-[8px] font-bold px-3 py-1 rounded-full border border-teal-200"></p>
+<p class="bg-gray-100 text-[#2a9d8f] text-[8px] font-bold px-3 py-1 rounded-full border border-gray-200">Version ID 3.1.3</p>
+<button type="button" onclick="bukaModalGantiHp()" class="bg-blue-50 text-blue-400 text-[8px] font-bold px-3 py-1 rounded-full border border-blue-200"><i class="fas fa-phone-alt"></i> Ganti HP</button>
+<p id="rowIndicatorMobile" class="hidden bg-teal-50 text-[#2a9d8f] text-[8px] font-bold px-3 py-1 rounded-full border border-teal-200"></p>
 <button type="button" onclick="kembaliKeAdmin()" id="btnBackAdminMobile" class="hidden bg-yellow-50 text-yellow-600 text-[8px] font-bold px-3 py-1 rounded-full border border-yellow-200"><i class="fas fa-arrow-left"></i> Admin</button>
 </div>
 </header>
 
-<aside class="hidden md:flex w-52 lg:w-64 h-full shrink-0 flex-col z-40 relative bg-white shadow-[2px_0_10px_rgba(0,0,0,0.03)] border-r border-gray-100" id="userAsideDesktop">
-<div class="flex flex-col items-center justify-center mt-10 mb-8">
-<h1 class="text-[14px] md:text-[20px] font-heading font-black tracking-tight text-[#1e293b]">FORMULIR<span class="text-[#079790]"> MEMPELAI</span></h1>
+<aside class="hidden md:flex w-48 lg:w-56 h-full shrink-0 flex-col z-40 relative bg-white shadow-[2px_0_10px_rgba(0,0,0,0.03)] border-r border-gray-100" id="userAsideDesktop">
+<div class="flex flex-col items-center justify-center mt-6 mb-4">
+<h1 class="text-[14px] md:text-[20px] font-heading font-black tracking-tight text-[#334155]">FORMULIR<span class="text-[#2a9d8f]"> MEMPELAI</span></h1>
 <div class="flex gap-2 mt-3 flex-wrap justify-center">
-<p class="bg-gray-100 text-[#079790] text-[9px] md:text-[10px] font-bold px-4 py-1.5 rounded-full border border-gray-200">Formulir Untuk Mempelai</p>
-<p id="rowIndicatorDesktop" class="hidden bg-teal-50 text-[#079790] text-[9px] md:text-[10px] font-bold px-4 py-1.5 rounded-full border border-teal-200"></p>
+<p class="bg-gray-100 text-[#2a9d8f] text-[9px] md:text-[10px] font-bold px-4 py-1.5 rounded-full border border-gray-200">Version ID 3.1.3</p>
+<p id="rowIndicatorDesktop" class="hidden bg-teal-50 text-[#2a9d8f] text-[9px] md:text-[10px] font-bold px-4 py-1.5 rounded-full border border-teal-200"></p>
 </div>
 <button type="button" onclick="kembaliKeAdmin()" id="btnBackAdminDesktop" class="hidden mt-3 bg-yellow-50 text-yellow-600 text-[10px] font-bold px-4 py-1.5 rounded-full border border-yellow-200 transition-colors hover:bg-yellow-100"><i class="fas fa-arrow-left mr-1"></i> Kembali ke Admin</button>
 </div>
-<nav class="flex flex-col gap-3 px-5 w-full mt-2 flex-1 overflow-y-auto">
-<button type="button" onclick="switchTab('mempelai')" class="tab-btn btn-tab-mempelai flex items-center py-3.5 px-5 rounded-2xl text-[11px] md:text-[14px] font-bold tracking-wide active-tab transition-all gap-4 w-full text-[#64748b]">
-<i class="fas fa-user-friends w-5 text-center md:text-[16px]"></i> <span>Mempelai</span>
+<nav class="flex flex-col gap-1.5 px-4 w-full mt-1 flex-1 overflow-y-auto custom-scrollbar">
+<button type="button" onclick="switchTab('mempelai')" class="tab-btn btn-tab-mempelai flex items-center py-2.5 px-4 rounded-xl text-[11px] md:text-[12px] font-bold tracking-wide active-tab transition-all gap-3 w-full text-[#71717a]">
+<i class="fas fa-user-friends w-5 text-center md:text-[14px]"></i> <span>Mempelai</span>
 </button>
-<button type="button" onclick="switchTab('media')" class="tab-btn btn-tab-media flex items-center py-3.5 px-5 rounded-2xl text-[11px] md:text-[14px] font-bold tracking-wide text-[#64748b] hover:bg-gray-50 transition-all gap-4 w-full">
-<i class="fas fa-folder-open w-5 text-center md:text-[16px]"></i> <span>Media</span>
+<button type="button" onclick="switchTab('media')" class="tab-btn btn-tab-media flex items-center py-2.5 px-4 rounded-xl text-[11px] md:text-[12px] font-bold tracking-wide text-[#71717a] hover:bg-gray-50 transition-all gap-3 w-full">
+<i class="fas fa-folder-open w-5 text-center md:text-[14px]"></i> <span>Media</span>
 </button>
-<button type="button" onclick="switchTab('acara')" class="tab-btn btn-tab-acara flex items-center py-3.5 px-5 rounded-2xl text-[11px] md:text-[14px] font-bold tracking-wide text-[#64748b] hover:bg-gray-50 transition-all gap-4 w-full">
-<i class="fas fa-ring w-5 text-center md:text-[16px]"></i> <span>Acara</span>
+<button type="button" onclick="switchTab('acara')" class="tab-btn btn-tab-acara flex items-center py-2.5 px-4 rounded-xl text-[11px] md:text-[12px] font-bold tracking-wide text-[#71717a] hover:bg-gray-50 transition-all gap-3 w-full">
+<i class="fas fa-ring w-5 text-center md:text-[14px]"></i> <span>Acara</span>
 </button>
-<button type="button" onclick="switchTab('kado')" class="tab-btn btn-tab-kado flex items-center py-3.5 px-5 rounded-2xl text-[11px] md:text-[14px] font-bold tracking-wide text-[#64748b] hover:bg-gray-50 transition-all gap-4 w-full">
-<i class="fas fa-gift w-5 text-center md:text-[16px]"></i> <span>Kado</span>
+<button type="button" onclick="switchTab('kado')" class="tab-btn btn-tab-kado flex items-center py-2.5 px-4 rounded-xl text-[11px] md:text-[12px] font-bold tracking-wide text-[#71717a] hover:bg-gray-50 transition-all gap-3 w-full">
+<i class="fas fa-gift w-5 text-center md:text-[14px]"></i> <span>Kado</span>
 </button>
-<div class="w-full h-[1px] bg-gray-200 my-2"></div>
-<button type="button" onclick="tampilkanKonfirmasi()" id="btnSubmitDesktop" class="flex items-center justify-center py-4 px-5 rounded-2xl text-[12px] md:text-[14px] font-extrabold tracking-wide text-white bg-[#079790] hover:bg-[#06827c] shadow-md shadow-[#079790]/20 transition-all gap-2 w-full">
-<i class="fas fa-save w-5 text-center md:text-[18px]"></i> <span>SIMPAN</span>
+<button type="button" onclick="switchTab('guestbook')" class="tab-btn btn-tab-guestbook flex items-center py-2.5 px-4 rounded-xl text-[11px] md:text-[12px] font-bold tracking-wide text-[#71717a] hover:bg-gray-50 transition-all gap-3 w-full">
+<i class="fas fa-comments w-5 text-center md:text-[14px]"></i> <span>Ucapan</span>
 </button>
-<button type="button" onclick="logout()" id="btnLogoutDesktop" class="flex items-center py-4 px-5 mt-1 rounded-2xl text-[12px] md:text-[14px] font-extrabold tracking-wide text-[#ef4444] bg-red-50 hover:bg-red-100 border border-red-100 transition-all w-full justify-center">
+<div class="w-full h-[1px] bg-gray-200 my-1"></div>
+<button type="button" onclick="bukaModalGantiHp()" id="btnGantiHpDesktop" class="flex items-center justify-center py-2.5 px-4 mt-1 rounded-xl text-[11px] md:text-[12px] font-extrabold tracking-wide text-blue-400 bg-blue-50 hover:bg-blue-100 border border-blue-100 transition-all gap-2 w-full">
+<i class="fas fa-phone-alt w-5 text-center md:text-[14px]"></i> <span>GANTI NO HP</span>
+</button>
+<button type="button" onclick="tampilkanKonfirmasi()" id="btnSubmitDesktop" class="flex items-center justify-center py-2.5 px-4 mt-1 rounded-xl text-[11px] md:text-[12px] font-extrabold tracking-wide text-white bg-[#2a9d8f] hover:bg-[#21867a] shadow-md shadow-[#2a9d8f]/20 transition-all gap-2 w-full">
+<i class="fas fa-save w-5 text-center md:text-[14px]"></i> <span>SIMPAN</span>
+</button>
+<button type="button" onclick="logout()" id="btnLogoutDesktop" class="flex items-center py-2.5 px-4 mt-1 rounded-xl text-[11px] md:text-[12px] font-extrabold tracking-wide text-red-400 bg-red-50 hover:bg-red-100 border border-red-100 transition-all w-full justify-center">
 <span>KELUAR</span>
 </button>
 </nav>
@@ -404,8 +411,8 @@ font-size: 9px;
 <div id="section-mempelai" class="tab-content flex-col w-full h-full">
 <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 mb-6 md:flex-1 md:min-h-0 shrink-0 md:shrink">
 <div class="bg-white shadow-sm border border-gray-100 rounded-[30px] p-6 md:p-8 w-full md:h-full md:overflow-y-auto custom-scrollbar">
-<h2 class="flex items-center justify-center text-[14px] md:text-[18px] font-heading font-bold text-[#1e293b] mb-6 md:mb-8 text-center">
-<i class="fas fa-person-dress text-pink-500 mr-2 text-[18px] md:text-[22px]"></i> MEMPELAI WANITA
+<h2 class="flex items-center justify-center text-[14px] md:text-[18px] font-heading font-bold text-[#334155] mb-6 md:mb-8 text-center">
+<i class="fas fa-person-dress text-pink-400 mr-2 text-[18px] md:text-[22px]"></i> MEMPELAI WANITA
 </h2>
 <div class="space-y-5">
 <div class="float-container">
@@ -432,8 +439,8 @@ font-size: 9px;
 </div>
 
 <div class="bg-white shadow-sm border border-gray-100 rounded-[30px] p-6 md:p-8 w-full md:h-full md:overflow-y-auto custom-scrollbar">
-<h2 class="flex items-center justify-center text-[14px] md:text-[18px] font-heading font-bold text-[#1e293b] mb-6 md:mb-8 text-center">
-<i class="fas fa-person text-blue-500 mr-2 text-[18px] md:text-[22px]"></i> MEMPELAI PRIA
+<h2 class="flex items-center justify-center text-[14px] md:text-[18px] font-heading font-bold text-[#334155] mb-6 md:mb-8 text-center">
+<i class="fas fa-person text-blue-400 mr-2 text-[18px] md:text-[22px]"></i> MEMPELAI PRIA
 </h2>
 <div class="space-y-5">
 <div class="float-container">
@@ -463,24 +470,24 @@ font-size: 9px;
 
 <div id="section-media" class="tab-content hidden flex-col w-full h-full">
 <div class="bg-white shadow-sm border border-gray-100 rounded-[30px] p-6 md:p-8 w-full md:h-full md:overflow-y-auto custom-scrollbar">
-<h2 class="text-[14px] md:text-[18px] font-heading font-bold text-[#1e293b] mb-4 text-center">MEDIA FOTO</h2>
+<h2 class="text-[14px] md:text-[18px] font-heading font-bold text-[#334155] mb-4 text-center">MEDIA FOTO</h2>
 <div class="grid grid-cols-1 md:grid-cols-3 gap-6 w-full">
-<div class="relative bg-white border border-[#e2e8f0] rounded-xl p-4 pt-8 shadow-sm transition-all hover:border-[#079790]">
-<label class="absolute left-4 top-3 text-[10px] md:text-[11px] font-bold text-[#079790]"><i class="fas fa-female text-pink-500 mr-2"></i>Foto Pengantin Wanita</label>
+<div class="relative bg-white border border-[#e2e8f0] rounded-xl p-4 pt-8 shadow-sm transition-all hover:border-[#2a9d8f]">
+<label class="absolute left-4 top-3 text-[10px] md:text-[11px] font-bold text-[#2a9d8f]"><i class="fas fa-female text-pink-400 mr-2"></i>Foto Pengantin Wanita</label>
 <input type="file" id="linkFotoWanita" accept="image/*" class="w-full mt-1">
 <div id="previewFotoWanita" class="mt-4 hidden p-2 bg-gray-50 border border-gray-200 rounded-2xl w-fit">
 <img id="imgWanita" class="w-32 md:w-40 h-auto object-cover rounded-xl" />
 </div>
 </div>
-<div class="relative bg-white border border-[#e2e8f0] rounded-xl p-4 pt-8 shadow-sm transition-all hover:border-[#079790]">
-<label class="absolute left-4 top-3 text-[10px] md:text-[11px] font-bold text-[#079790]"><i class="fas fa-male text-blue-500 mr-2"></i>Foto Pengantin Pria</label>
+<div class="relative bg-white border border-[#e2e8f0] rounded-xl p-4 pt-8 shadow-sm transition-all hover:border-[#2a9d8f]">
+<label class="absolute left-4 top-3 text-[10px] md:text-[11px] font-bold text-[#2a9d8f]"><i class="fas fa-male text-blue-400 mr-2"></i>Foto Pengantin Pria</label>
 <input type="file" id="linkFotoPria" accept="image/*" class="w-full mt-1">
 <div id="previewFotoPria" class="mt-4 hidden p-2 bg-gray-50 border border-gray-200 rounded-2xl w-fit">
 <img id="imgPria" class="w-32 md:w-40 h-auto object-cover rounded-xl" />
 </div>
 </div>
-<div class="relative bg-white border border-[#e2e8f0] rounded-xl p-4 pt-8 shadow-sm transition-all hover:border-[#079790]">
-<label class="absolute left-4 top-3 text-[10px] md:text-[11px] font-bold text-[#079790]"><i class="fas fa-images text-[#079790] mr-2"></i>Foto Album (Opsional)</label>
+<div class="relative bg-white border border-[#e2e8f0] rounded-xl p-4 pt-8 shadow-sm transition-all hover:border-[#2a9d8f]">
+<label class="absolute left-4 top-3 text-[10px] md:text-[11px] font-bold text-[#2a9d8f]"><i class="fas fa-images text-[#2a9d8f] mr-2"></i>Foto Album (Opsional)</label>
 <input type="file" id="linkFolderAlbum" accept="image/*" multiple class="w-full mt-1">
 <div id="previewFotoAlbum" class="mt-4 hidden flex-wrap gap-3 p-3 bg-gray-50 border border-gray-200 rounded-2xl w-full"></div>
 </div>
@@ -491,7 +498,7 @@ font-size: 9px;
 <div id="section-acara" class="tab-content hidden flex-col w-full h-full">
 <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 md:flex-1 md:min-h-0 shrink-0 md:shrink">
 <div class="bg-white shadow-sm border border-gray-100 rounded-[30px] p-6 md:p-8 w-full md:h-full md:overflow-y-auto custom-scrollbar">
-<h2 class="text-[14px] md:text-[18px] font-heading font-bold text-[#1e293b] mb-6 md:mb-8 text-center">DATA AKAD</h2>
+<h2 class="text-[14px] md:text-[18px] font-heading font-bold text-[#334155] mb-6 md:mb-8 text-center">DATA AKAD</h2>
 <div class="space-y-5">
 <div class="float-container">
 <input type="date" id="tanggalAkad" class="float-input" placeholder=" ">
@@ -513,7 +520,7 @@ font-size: 9px;
 </div>
 
 <div class="bg-white shadow-sm border border-gray-100 rounded-[30px] p-6 md:p-8 w-full md:h-full md:overflow-y-auto custom-scrollbar">
-<h2 class="text-[14px] md:text-[18px] font-heading font-bold text-[#1e293b] mb-6 md:mb-8 text-center">DATA RESEPSI</h2>
+<h2 class="text-[14px] md:text-[18px] font-heading font-bold text-[#334155] mb-6 md:mb-8 text-center">DATA RESEPSI</h2>
 <div class="space-y-5">
 <div class="float-container">
 <input type="date" id="tanggalResepsi" class="float-input" placeholder=" ">
@@ -539,7 +546,7 @@ font-size: 9px;
 <div id="section-kado" class="tab-content hidden flex-col w-full h-full">
 <div class="flex-1 min-h-0 flex flex-col space-y-6 md:space-y-8 md:overflow-y-auto custom-scrollbar shrink-0 md:shrink md:pr-1">
 <div class="bg-white shadow-sm border border-gray-100 rounded-[30px] p-6 md:p-8 w-full shrink-0">
-<h2 class="text-[14px] md:text-[18px] font-heading font-bold text-[#1e293b] mb-6 md:mb-8 text-center">KADO DIGITAL</h2>
+<h2 class="text-[14px] md:text-[18px] font-heading font-bold text-[#334155] mb-6 md:mb-8 text-center">KADO DIGITAL</h2>
 <div class="grid grid-cols-1 md:grid-cols-4 gap-5 items-end mb-8">
 <div class="md:col-span-1 float-container">
 <select id="bankSelect" class="float-input">
@@ -571,7 +578,7 @@ font-size: 9px;
 <label class="float-label">Atas Nama</label>
 </div>
 <div class="md:col-span-1">
-<button type="button" onclick="tambahKado()" class="w-full h-[49px] md:h-[49px] bg-gray-50 hover:bg-gray-100 border border-gray-200 text-[#079790] rounded-xl text-[11px] md:text-[13px] font-extrabold uppercase tracking-widest transition-colors flex justify-center items-center">
+<button type="button" onclick="tambahKado()" class="w-full h-[49px] md:h-[49px] bg-gray-50 hover:bg-gray-100 border border-gray-200 text-[#2a9d8f] rounded-xl text-[11px] md:text-[13px] font-extrabold uppercase tracking-widest transition-colors flex justify-center items-center">
 Tambah Kado
 </button>
 </div>
@@ -579,56 +586,108 @@ Tambah Kado
 <div id="tabelKado" class="flex flex-col gap-4">
 </div>
 </div>
-
 <div class="bg-white shadow-sm border border-gray-100 rounded-[30px] p-6 md:p-8 w-full shrink-0">
-<h2 class="text-[14px] md:text-[18px] font-heading font-bold text-[#1e293b] mb-6 md:mb-8 text-center">KONTAK KONFIRMASI</h2>
+<h2 class="text-[14px] md:text-[18px] font-heading font-bold text-[#334155] mb-6 md:mb-8 text-center">KONTAK KONFIRMASI</h2>
 <div class="float-container">
 <input type="text" inputmode="numeric" pattern="[0-9]*" oninput="this.value = this.value.replace(/[^0-9]/g, '')" id="noHpWa" class="float-input" placeholder=" ">
 <label class="float-label">Nomor HP WhatsApp</label>
 </div>
 </div>
+</div>
+</div>
 
+<div id="section-guestbook" class="tab-content hidden flex-col w-full h-full">
+<div class="bg-white shadow-sm border border-gray-100 rounded-[30px] p-6 md:p-8 w-full md:h-full md:overflow-y-auto custom-scrollbar flex flex-col">
+<h2 class="text-[14px] md:text-[18px] font-heading font-bold text-[#334155] mb-6 md:mb-8 text-center">DATA UCAPAN / GUESTBOOK</h2>
+<div class="grid grid-cols-1 md:grid-cols-4 gap-5 items-end mb-8 shrink-0">
+<div class="md:col-span-1 float-container">
+<input type="text" id="gbNama" class="float-input" placeholder=" ">
+<label class="float-label">Nama Tamu</label>
+</div>
+<div class="md:col-span-1 float-container">
+<select id="gbKehadiran" class="float-input">
+<option value="Hadir">Hadir</option>
+<option value="Tidak Hadir">Tidak Hadir</option>
+<option value="Masih Ragu">Masih Ragu</option>
+</select>
+<label class="float-label">Kehadiran</label>
+</div>
+<div class="md:col-span-1 float-container">
+<input type="number" id="gbJumlah" class="float-input" placeholder=" " value="1" min="1">
+<label class="float-label">Jumlah Orang</label>
+</div>
+<div class="md:col-span-1 float-container">
+<input type="text" id="gbPesan" class="float-input" placeholder=" ">
+<label class="float-label">Pesan / Ucapan</label>
+</div>
+<div class="md:col-span-4 flex gap-3">
+<button type="button" onclick="simpanGuestbook()" id="btnSimpanGb" class="flex-1 py-3 bg-[#2a9d8f] hover:bg-[#21867a] text-white rounded-xl text-[11px] md:text-[13px] font-extrabold uppercase tracking-widest transition-colors">Tambah Ucapan</button>
+<button type="button" onclick="batalEditGuestbook()" id="btnBatalGb" class="hidden py-3 px-6 bg-gray-100 hover:bg-gray-200 text-gray-600 rounded-xl text-[11px] md:text-[13px] font-extrabold uppercase tracking-widest transition-colors">Batal</button>
+</div>
+</div>
+<div id="tabelGuestbook" class="flex flex-col gap-4">
+</div>
 </div>
 </div>
 </form>
 
-<div id="mobileActionNav" class="md:hidden w-full flex justify-center px-4 pb-4 bg-[#f8fafc] z-20 shrink-0">
-<button type="button" id="btnNextMobile" onclick="nextTabMobile()" class="w-11/12 py-3 rounded-full bg-[#079790] hover:bg-[#06827c] text-white shadow-md font-bold text-[12px] uppercase tracking-wider transition-all">Selanjutnya</button>
-<button type="button" id="btnSubmitMobile" onclick="tampilkanKonfirmasi()" class="hidden w-11/12 py-3 rounded-full bg-[#079790] hover:bg-[#06827c] text-white shadow-md font-bold text-[12px] uppercase tracking-wider transition-all justify-center items-center gap-2">
+<div id="mobileActionNav" class="md:hidden w-full hidden justify-center px-4 py-3 bg-[#f8fafc] z-[90] shrink-0 border-t border-gray-200 shadow-[0_-4px_10px_rgba(0,0,0,0.02)]">
+<button type="button" id="btnNextMobile" onclick="nextTabMobile()" class="w-full py-3 rounded-xl bg-[#2a9d8f] hover:bg-[#21867a] text-white shadow-md font-bold text-[12px] uppercase tracking-wider transition-all">Selanjutnya</button>
+<button type="button" id="btnSubmitMobile" onclick="tampilkanKonfirmasi()" class="hidden w-full py-3 rounded-xl bg-[#2a9d8f] hover:bg-[#21867a] text-white shadow-md font-bold text-[12px] uppercase tracking-wider transition-all justify-center items-center gap-2">
 <i class="fas fa-save text-[15px]"></i> Simpan Formulir
+</button>
+<button type="button" id="btnSubmitGuestbook" onclick="tampilkanKonfirmasi()" class="hidden w-full py-3 rounded-xl bg-[#2a9d8f] hover:bg-[#21867a] text-white shadow-md font-bold text-[12px] uppercase tracking-wider transition-all justify-center items-center gap-2">
+<i class="fas fa-save text-[15px]"></i> Simpan Ucapan & Formulir
 </button>
 </div>
 
 </main>
 
 <nav id="userMobileNav" class="w-full h-[75px] shrink-0 flex md:hidden justify-around items-center px-1 z-[100] relative glass-panel rounded-t-[2rem] shadow-[0_-4px_10px_rgba(0,0,0,0.03)] border-t border-gray-200">
-<button type="button" onclick="switchTab('mempelai')" class="tab-btn btn-tab-mempelai flex-1 flex flex-col items-center justify-center py-2 mx-0.5 rounded-2xl text-[9px] font-bold tracking-wide active-tab transition-all gap-1 h-12 text-[#64748b]">
-<i class="fas fa-user-friends text-[14px] mb-0.5"></i> Mempelai
+<button type="button" onclick="switchTab('mempelai')" class="tab-btn btn-tab-mempelai flex-1 flex flex-col items-center justify-center py-2 mx-0.5 rounded-2xl text-[9px] font-bold tracking-wide active-tab transition-all gap-1 h-12 text-[#71717a]">
+<i class="fas fa-user-friends text-[12px] mb-0.5"></i> Mempelai
 </button>
-<button type="button" onclick="switchTab('media')" class="tab-btn btn-tab-media flex-1 flex flex-col items-center justify-center py-2 mx-0.5 rounded-2xl text-[9px] font-bold tracking-wide text-[#64748b] transition-all gap-1 h-12 hover:bg-gray-50/50">
-<i class="fas fa-folder-open text-[14px] mb-0.5"></i> Media
+<button type="button" onclick="switchTab('media')" class="tab-btn btn-tab-media flex-1 flex flex-col items-center justify-center py-2 mx-0.5 rounded-2xl text-[9px] font-bold tracking-wide text-[#71717a] transition-all gap-1 h-12 hover:bg-gray-50/50">
+<i class="fas fa-folder-open text-[12px] mb-0.5"></i> Media
 </button>
-<button type="button" onclick="switchTab('acara')" class="tab-btn btn-tab-acara flex-1 flex flex-col items-center justify-center py-2 mx-0.5 rounded-2xl text-[9px] font-bold tracking-wide text-[#64748b] transition-all gap-1 h-12 hover:bg-gray-50/50">
-<i class="fas fa-ring text-[14px] mb-0.5"></i> Acara
+<button type="button" onclick="switchTab('acara')" class="tab-btn btn-tab-acara flex-1 flex flex-col items-center justify-center py-2 mx-0.5 rounded-2xl text-[9px] font-bold tracking-wide text-[#71717a] transition-all gap-1 h-12 hover:bg-gray-50/50">
+<i class="fas fa-ring text-[12px] mb-0.5"></i> Acara
 </button>
-<button type="button" onclick="switchTab('kado')" class="tab-btn btn-tab-kado flex-1 flex flex-col items-center justify-center py-2 mx-0.5 rounded-2xl text-[9px] font-bold tracking-wide text-[#64748b] transition-all gap-1 h-12 hover:bg-gray-50/50">
-<i class="fas fa-gift text-[14px] mb-0.5"></i> Kado
+<button type="button" onclick="switchTab('kado')" class="tab-btn btn-tab-kado flex-1 flex flex-col items-center justify-center py-2 mx-0.5 rounded-2xl text-[9px] font-bold tracking-wide text-[#71717a] transition-all gap-1 h-12 hover:bg-gray-50/50">
+<i class="fas fa-gift text-[12px] mb-0.5"></i> Kado
 </button>
-<button type="button" onclick="logout()" class="tab-btn flex-1 flex flex-col items-center justify-center py-2 mx-0.5 rounded-2xl text-[9px] font-extrabold tracking-wide text-red-500 transition-all gap-1 h-12 hover:bg-red-50">
-<i class="fas fa-sign-out-alt text-[14px] mb-0.5"></i> Keluar
+<button type="button" onclick="switchTab('guestbook')" class="tab-btn btn-tab-guestbook flex-1 flex flex-col items-center justify-center py-2 mx-0.5 rounded-2xl text-[9px] font-bold tracking-wide text-[#71717a] transition-all gap-1 h-12 hover:bg-gray-50/50">
+<i class="fas fa-comments text-[12px] mb-0.5"></i> Ucapan
+</button>
+<button type="button" onclick="logout()" class="tab-btn flex-1 flex flex-col items-center justify-center py-2 mx-0.5 rounded-2xl text-[9px] font-extrabold tracking-wide text-red-400 transition-all gap-1 h-12 hover:bg-red-50">
+<i class="fas fa-sign-out-alt text-[12px] mb-0.5"></i> Keluar
 </button>
 </nav>
+
+<div id="modal-ganti-hp" class="fixed inset-0 z-[200] hidden items-center justify-center bg-slate-900/60 backdrop-blur-md transition-opacity p-4">
+<div class="bg-white p-6 md:p-8 rounded-[30px] w-full max-w-[340px] relative flex flex-col shadow-2xl border border-gray-100">
+<h3 class="text-[#334155] font-heading font-bold text-[16px] mb-4 text-center">Ganti Nomor HP</h3>
+<div class="float-container mb-4">
+<input type="text" inputmode="numeric" pattern="[0-9]*" oninput="this.value = this.value.replace(/[^0-9]/g, '')" id="inputNewPhone" class="float-input" placeholder=" ">
+<label class="float-label">Nomor HP Baru</label>
+</div>
+<div class="flex gap-4 w-full">
+<button type="button" onclick="tutupModalGantiHp()" class="flex-1 py-3 rounded-full bg-gray-100 hover:bg-gray-200 text-gray-600 font-bold text-[12px] uppercase transition-colors">Batal</button>
+<button type="button" onclick="prosesGantiHp()" id="btnProsesGantiHp" class="flex-1 py-3 rounded-full bg-[#2a9d8f] hover:bg-[#21867a] text-white shadow-md font-bold text-[12px] uppercase transition-colors">Simpan</button>
+</div>
+</div>
+</div>
 
 <div id="modal-konfirmasi" class="fixed inset-0 z-[160] hidden items-center justify-center bg-slate-900/40 backdrop-blur-sm transition-opacity p-4">
 <div class="bg-white p-6 md:p-8 rounded-[30px] w-full max-w-[280px] md:max-w-[340px] relative flex flex-col items-center text-center shadow-2xl border border-gray-100">
 <div class="w-14 h-14 md:w-16 md:h-16 bg-teal-50 rounded-full flex items-center justify-center mb-5 md:mb-6 border border-teal-100">
-<i class="fas fa-question-circle text-[#079790] text-[20px] md:text-[24px]"></i>
+<i class="fas fa-question-circle text-[#2a9d8f] text-[20px] md:text-[24px]"></i>
 </div>
-<h3 class="text-[#1e293b] font-heading font-bold text-[14px] md:text-[16px] mb-2">Konfirmasi Simpan</h3>
-<p class="text-[#64748b] text-[11px] md:text-[13px] font-medium mb-6 md:mb-8">Apakah Anda yakin data yang diinput sudah benar?</p>
+<h3 class="text-[#334155] font-heading font-bold text-[14px] md:text-[16px] mb-2">Konfirmasi Simpan</h3>
+<p class="text-[#71717a] text-[11px] md:text-[13px] font-medium mb-6 md:mb-8">Apakah Anda yakin data yang diinput sudah benar?</p>
 <div class="flex gap-4 w-full">
 <button type="button" onclick="batalSimpan()" class="flex-1 py-3 md:py-4 rounded-full bg-gray-100 hover:bg-gray-200 text-gray-600 font-bold text-[11px] md:text-[13px] uppercase tracking-wider transition-colors">Batal</button>
-<button type="button" onclick="lanjutSimpan()" class="flex-1 py-3 md:py-4 rounded-full bg-[#079790] hover:bg-[#06827c] text-white shadow-md font-bold text-[11px] md:text-[13px] uppercase tracking-wider transition-colors">Simpan</button>
+<button type="button" onclick="lanjutSimpan()" class="flex-1 py-3 md:py-4 rounded-full bg-[#2a9d8f] hover:bg-[#21867a] text-white shadow-md font-bold text-[11px] md:text-[13px] uppercase tracking-wider transition-colors">Simpan</button>
 </div>
 </div>
 </div>
@@ -636,36 +695,39 @@ Tambah Kado
 <div id="modal-info" class="fixed inset-0 z-[250] hidden items-center justify-center bg-slate-900/40 backdrop-blur-sm transition-opacity p-4">
 <div class="bg-white p-6 md:p-8 rounded-[30px] w-full max-w-[280px] md:max-w-[340px] relative flex flex-col items-center text-center shadow-2xl border border-gray-100">
 <div class="w-14 h-14 md:w-16 md:h-16 bg-blue-50 rounded-full flex items-center justify-center mb-5 md:mb-6 border border-blue-100">
-<i class="fas fa-info-circle text-blue-500 text-[20px] md:text-[24px]"></i>
+<i class="fas fa-info-circle text-blue-400 text-[20px] md:text-[24px]"></i>
 </div>
-<h3 class="text-[#1e293b] font-heading font-bold text-[14px] md:text-[16px] mb-2">Informasi</h3>
-<p id="modal-info-desc" class="text-[#64748b] text-[11px] md:text-[13px] font-medium mb-6 md:mb-8"></p>
-<button type="button" id="btnTutupModal" onclick="tutupModal()" class="w-full py-3 md:py-4 rounded-full bg-[#079790] hover:bg-[#06827c] text-white shadow-md font-bold text-[11px] md:text-[13px] uppercase tracking-wider transition-colors">Mengerti</button>
+<h3 class="text-[#334155] font-heading font-bold text-[14px] md:text-[16px] mb-2">Informasi</h3>
+<p id="modal-info-desc" class="text-[#71717a] text-[11px] md:text-[13px] font-medium mb-6 md:mb-8"></p>
+<button type="button" id="btnTutupModal" onclick="tutupModal()" class="w-full py-3 md:py-4 rounded-full bg-[#2a9d8f] hover:bg-[#21867a] text-white shadow-md font-bold text-[11px] md:text-[13px] uppercase tracking-wider transition-colors">Mengerti</button>
 </div>
 </div>
 
 <div id="modal-hapus" class="fixed inset-0 z-[260] hidden items-center justify-center bg-slate-900/40 backdrop-blur-sm transition-opacity p-4">
 <div class="bg-white p-6 md:p-8 rounded-[30px] w-full max-w-[280px] md:max-w-[340px] relative flex flex-col items-center text-center shadow-2xl border border-gray-100">
 <div class="w-14 h-14 md:w-16 md:h-16 bg-red-50 rounded-full flex items-center justify-center mb-5 md:mb-6 border border-red-100">
-<i class="fas fa-exclamation-triangle text-red-500 text-[20px] md:text-[24px]"></i>
+<i class="fas fa-exclamation-triangle text-red-400 text-[20px] md:text-[24px]"></i>
 </div>
-<h3 class="text-[#1e293b] font-heading font-bold text-[14px] md:text-[16px] mb-2">Konfirmasi Hapus</h3>
-<p id="modal-hapus-desc" class="text-[#64748b] text-[11px] md:text-[13px] font-medium mb-6 md:mb-8"></p>
+<h3 class="text-[#334155] font-heading font-bold text-[14px] md:text-[16px] mb-2">Konfirmasi Hapus</h3>
+<p id="modal-hapus-desc" class="text-[#71717a] text-[11px] md:text-[13px] font-medium mb-6 md:mb-8"></p>
 <div class="flex gap-4 w-full">
 <button type="button" onclick="batalHapusUser()" class="flex-1 py-3 md:py-4 rounded-full bg-gray-100 hover:bg-gray-200 text-gray-600 font-bold text-[11px] md:text-[13px] uppercase tracking-wider transition-colors">Batal</button>
-<button type="button" onclick="lanjutHapusUser()" class="flex-1 py-3 md:py-4 rounded-full bg-red-500 hover:bg-red-600 text-white shadow-md font-bold text-[11px] md:text-[13px] uppercase tracking-wider transition-colors">Hapus</button>
+<button type="button" onclick="lanjutHapusUser()" class="flex-1 py-3 md:py-4 rounded-full bg-red-400 hover:bg-red-500 text-white shadow-md font-bold text-[11px] md:text-[13px] uppercase tracking-wider transition-colors">Hapus</button>
 </div>
 </div>
 </div>
 
 <script>
-const gasUrl = "https://script.google.com/macros/s/AKfycbwoHua2FfrPAKJ_85jsodWxUftwbLHXW95XQ0ryCDkmMOYOkdbDjrt4uVVS2wby3kwz/exec";
+const gasUrl = "https://script.google.com/macros/s/AKfycbw5ZuRWka6tupBD1sJCmAuA_JeB5SqKU8PBjAThN_HZ5wgHdZduoW4ipYvuHUDj1Wd2/exec";
 let dataKado = [];
+let dataGuestbook = [];
+let editGuestbookIndex = -1;
 let editRowId = null;
 let currentUserPhone = localStorage.getItem('userPhone');
 let isAdmin = localStorage.getItem('adminMode') === 'true';
 let adminDataList = [];
 let userPhoneToDelete = null;
+let targetPhoneToChange = null;
 
 const mobileTabsOrder = ['mempelai', 'media', 'acara', 'kado'];
 let currentTabIndex = 0;
@@ -695,35 +757,35 @@ const passCont = document.getElementById('passwordContainer');
 const authPhone = document.getElementById('authPhone');
 const authPassword = document.getElementById('authPassword');
 
-btnLogin.classList.replace('bg-white', 'text-[#64748b]');
-btnLogin.classList.replace('text-[#079790]', 'bg-transparent');
+btnLogin.classList.replace('bg-white', 'text-[#71717a]');
+btnLogin.classList.replace('text-[#2a9d8f]', 'bg-transparent');
 btnLogin.classList.remove('shadow-sm');
-btnRegister.classList.replace('bg-white', 'text-[#64748b]');
-btnRegister.classList.replace('text-[#079790]', 'bg-transparent');
+btnRegister.classList.replace('bg-white', 'text-[#71717a]');
+btnRegister.classList.replace('text-[#2a9d8f]', 'bg-transparent');
 btnRegister.classList.remove('shadow-sm');
-btnAdmin.classList.replace('bg-white', 'text-[#64748b]');
-btnAdmin.classList.replace('text-[#079790]', 'bg-transparent');
+btnAdmin.classList.replace('bg-white', 'text-[#71717a]');
+btnAdmin.classList.replace('text-[#2a9d8f]', 'bg-transparent');
 btnAdmin.classList.remove('shadow-sm');
 
 if (mode === 'login') {
-btnLogin.classList.add('bg-white', 'text-[#079790]', 'shadow-sm');
-btnLogin.classList.remove('text-[#64748b]', 'bg-transparent');
+btnLogin.classList.add('bg-white', 'text-[#2a9d8f]', 'shadow-sm');
+btnLogin.classList.remove('text-[#71717a]', 'bg-transparent');
 btnSubmit.innerText = 'Masuk';
 phoneCont.classList.remove('hidden');
 passCont.classList.add('hidden');
 authPhone.required = true;
 authPassword.required = false;
 } else if (mode === 'register') {
-btnRegister.classList.add('bg-white', 'text-[#079790]', 'shadow-sm');
-btnRegister.classList.remove('text-[#64748b]', 'bg-transparent');
+btnRegister.classList.add('bg-white', 'text-[#2a9d8f]', 'shadow-sm');
+btnRegister.classList.remove('text-[#71717a]', 'bg-transparent');
 btnSubmit.innerText = 'Daftar';
 phoneCont.classList.remove('hidden');
 passCont.classList.add('hidden');
 authPhone.required = true;
 authPassword.required = false;
 } else if (mode === 'admin') {
-btnAdmin.classList.add('bg-white', 'text-[#079790]', 'shadow-sm');
-btnAdmin.classList.remove('text-[#64748b]', 'bg-transparent');
+btnAdmin.classList.add('bg-white', 'text-[#2a9d8f]', 'shadow-sm');
+btnAdmin.classList.remove('text-[#71717a]', 'bg-transparent');
 btnSubmit.innerText = 'Masuk Admin';
 phoneCont.classList.add('hidden');
 passCont.classList.remove('hidden');
@@ -795,6 +857,8 @@ resetFormFields();
 document.getElementById('adminDashboard').classList.add('hidden');
 document.getElementById('mainForm').classList.add('hidden');
 document.getElementById('progress-wrapper').classList.add('hidden');
+document.getElementById('mobileActionNav').classList.add('hidden');
+document.getElementById('mobileActionNav').classList.remove('flex');
 document.getElementById('userMobileNav').classList.add('hidden');
 document.getElementById('adminMobileNav').classList.add('hidden');
 document.getElementById('authScreen').classList.remove('hidden');
@@ -808,21 +872,21 @@ el.classList.add('hidden');
 el.classList.add('md:block');
 });
 document.querySelectorAll('.admin-tab-btn').forEach(el => {
-if(!el.classList.contains('text-red-500')) {
+if(!el.classList.contains('text-red-400')) {
 el.classList.remove('active-tab');
-el.classList.add('text-[#64748b]');
+el.classList.add('text-[#71717a]');
 }
 });
 if (tab === 'data') {
 document.getElementById('adminSectionData').classList.remove('hidden');
 document.getElementById('adminSectionData').classList.add('block');
 document.querySelector('.btn-admin-data').classList.add('active-tab');
-document.querySelector('.btn-admin-data').classList.remove('text-[#64748b]');
+document.querySelector('.btn-admin-data').classList.remove('text-[#71717a]');
 } else if (tab === 'password') {
 document.getElementById('adminSectionPassword').classList.remove('hidden');
 document.getElementById('adminSectionPassword').classList.add('block');
 document.querySelector('.btn-admin-password').classList.add('active-tab');
-document.querySelector('.btn-admin-password').classList.remove('text-[#64748b]');
+document.querySelector('.btn-admin-password').classList.remove('text-[#71717a]');
 }
 }
 
@@ -834,8 +898,8 @@ document.getElementById('adminMobileNav').classList.add('flex');
 document.getElementById('userMobileNav').classList.add('hidden');
 const tbodyDesk = document.getElementById('adminUserTableBody');
 const tbodyMob = document.getElementById('adminUserMobileBody');
-tbodyDesk.innerHTML = '<tr><td colspan="6" class="text-center p-6 text-[#64748b]"><i class="fas fa-spinner fa-spin mr-2"></i>Memuat data...</td></tr>';
-tbodyMob.innerHTML = '<div class="text-center p-6 text-[#64748b]"><i class="fas fa-spinner fa-spin mr-2"></i>Memuat data...</div>';
+tbodyDesk.innerHTML = '<tr><td colspan="6" class="text-center p-6 text-[#71717a] text-[11px] md:text-[13px]"><i class="fas fa-spinner fa-spin mr-2"></i>Memuat data...</td></tr>';
+tbodyMob.innerHTML = '<div class="text-center p-6 text-[#71717a] text-[11px]"><i class="fas fa-spinner fa-spin mr-2"></i>Memuat data...</div>';
 try {
 const response = await fetch(gasUrl + '?action=get_all_users');
 const result = await response.json();
@@ -843,12 +907,12 @@ if (result.status === 'success') {
 adminDataList = result.data;
 renderAdminData(adminDataList);
 } else {
-tbodyDesk.innerHTML = '<tr><td colspan="6" class="text-center p-6 text-[#64748b]">Belum ada data user</td></tr>';
-tbodyMob.innerHTML = '<div class="text-center p-6 text-[#64748b]">Belum ada data user</div>';
+tbodyDesk.innerHTML = '<tr><td colspan="6" class="text-center p-6 text-[#71717a]">Belum ada data user</td></tr>';
+tbodyMob.innerHTML = '<div class="text-center p-6 text-[#71717a]">Belum ada data user</div>';
 }
 } catch (e) {
-tbodyDesk.innerHTML = '<tr><td colspan="6" class="text-center p-6 text-red-500">Gagal memuat data</td></tr>';
-tbodyMob.innerHTML = '<div class="text-center p-6 text-red-500">Gagal memuat data</div>';
+tbodyDesk.innerHTML = '<tr><td colspan="6" class="text-center p-6 text-red-400">Gagal memuat data</td></tr>';
+tbodyMob.innerHTML = '<div class="text-center p-6 text-red-400">Gagal memuat data</div>';
 }
 switchAdminTab('data');
 }
@@ -869,8 +933,8 @@ const tbodyMob = document.getElementById('adminUserMobileBody');
 tbodyDesk.innerHTML = '';
 tbodyMob.innerHTML = '';
 if (data.length === 0) {
-tbodyDesk.innerHTML = '<tr><td colspan="6" class="text-center p-6 text-[#64748b]">Data tidak ditemukan</td></tr>';
-tbodyMob.innerHTML = '<div class="text-center p-6 text-[#64748b]">Data tidak ditemukan</div>';
+tbodyDesk.innerHTML = '<tr><td colspan="6" class="text-center p-6 text-[#71717a]">Data tidak ditemukan</td></tr>';
+tbodyMob.innerHTML = '<div class="text-center p-6 text-[#71717a]">Data tidak ditemukan</div>';
 return;
 }
 data.forEach((user) => {
@@ -878,13 +942,14 @@ const tr = document.createElement('tr');
 tr.className = 'hover:bg-gray-50 transition-colors';
 tr.innerHTML = `
 <td class="p-4 border-b border-gray-100 font-bold text-center">${user.row !== "-" ? user.row : "-"}</td>
-<td class="p-4 border-b border-gray-100 font-mono text-[11px] md:text-[12px] text-[#079790] font-bold">${user.phone}</td>
+<td class="p-4 border-b border-gray-100 font-mono text-[11px] md:text-[12px] text-[#2a9d8f] font-bold">${user.phone}</td>
 <td class="p-4 border-b border-gray-100 font-bold">${user.wanita}</td>
 <td class="p-4 border-b border-gray-100 font-bold">${user.pria}</td>
-<td class="p-4 border-b border-gray-100 text-[11px] text-[#64748b]">${user.timestamp}</td>
+<td class="p-4 border-b border-gray-100 text-[11px] text-[#71717a]">${user.timestamp}</td>
 <td class="p-4 border-b border-gray-100 text-center flex justify-center gap-2">
-<button onclick="editUserAsAdmin('${user.phone}')" class="w-8 h-8 rounded-full bg-blue-50 text-blue-500 hover:bg-blue-100 transition-colors flex items-center justify-center"><i class="fas fa-edit"></i></button>
-<button onclick="hapusUserAsAdmin('${user.phone}')" class="w-8 h-8 rounded-full bg-red-50 text-red-500 hover:bg-red-100 transition-colors flex items-center justify-center"><i class="fas fa-trash-alt"></i></button>
+<button onclick="bukaModalGantiHp('${user.phone}')" class="w-8 h-8 rounded-full bg-green-50 text-green-500 hover:bg-green-100 transition-colors flex items-center justify-center" title="Ganti No HP"><i class="fas fa-phone-alt"></i></button>
+<button onclick="editUserAsAdmin('${user.phone}')" class="w-8 h-8 rounded-full bg-blue-50 text-blue-400 hover:bg-blue-100 transition-colors flex items-center justify-center" title="Edit"><i class="fas fa-edit"></i></button>
+<button onclick="hapusUserAsAdmin('${user.phone}')" class="w-8 h-8 rounded-full bg-red-50 text-red-400 hover:bg-red-100 transition-colors flex items-center justify-center" title="Hapus"><i class="fas fa-trash-alt"></i></button>
 </td>
 `;
 tbodyDesk.appendChild(tr);
@@ -892,18 +957,80 @@ tbodyDesk.appendChild(tr);
 const card = document.createElement('div');
 card.className = 'bg-white shadow-sm border border-gray-100 rounded-2xl p-4 flex flex-col gap-2 relative';
 card.innerHTML = `
-<div class="absolute top-4 right-4 text-[10px] bg-gray-50 border border-gray-200 px-2 py-1 rounded-md font-bold text-[#64748b]">Baris: ${user.row !== "-" ? user.row : "-"}</div>
-<div class="font-mono text-[12px] text-[#079790] font-bold"><i class="fas fa-phone-alt mr-1 text-[#079790]"></i> ${user.phone}</div>
-<div class="text-[13px] font-bold text-[#1e293b] mt-1"><i class="fas fa-female text-pink-500 mr-1"></i> ${user.wanita}</div>
-<div class="text-[13px] font-bold text-[#1e293b]"><i class="fas fa-male text-blue-500 mr-1"></i> ${user.pria}</div>
-<div class="text-[10px] text-[#64748b] mt-1"><i class="fas fa-clock mr-1"></i> ${user.timestamp}</div>
+<div class="absolute top-4 right-4 text-[10px] bg-gray-50 border border-gray-200 px-2 py-1 rounded-md font-bold text-[#71717a]">Baris: ${user.row !== "-" ? user.row : "-"}</div>
+<div class="font-mono text-[12px] text-[#2a9d8f] font-bold"><i class="fas fa-phone-alt mr-1 text-[#2a9d8f]"></i> ${user.phone}</div>
+<div class="text-[13px] font-bold text-[#334155] mt-1"><i class="fas fa-female text-pink-400 mr-1"></i> ${user.wanita}</div>
+<div class="text-[13px] font-bold text-[#334155]"><i class="fas fa-male text-blue-400 mr-1"></i> ${user.pria}</div>
+<div class="text-[10px] text-[#71717a] mt-1"><i class="fas fa-clock mr-1"></i> ${user.timestamp}</div>
 <div class="flex gap-2 mt-3 pt-3 border-t border-gray-100">
-<button onclick="editUserAsAdmin('${user.phone}')" class="flex-1 py-2 rounded-xl bg-blue-50 text-blue-500 hover:bg-blue-100 transition-colors flex items-center justify-center font-bold text-[11px] gap-1"><i class="fas fa-edit"></i> Edit</button>
-<button onclick="hapusUserAsAdmin('${user.phone}')" class="flex-1 py-2 rounded-xl bg-red-50 text-red-500 hover:bg-red-100 transition-colors flex items-center justify-center font-bold text-[11px] gap-1"><i class="fas fa-trash-alt"></i> Hapus</button>
+<button onclick="bukaModalGantiHp('${user.phone}')" class="flex-1 py-2 rounded-xl bg-green-50 text-green-500 hover:bg-green-100 transition-colors flex items-center justify-center font-bold text-[10px] md:text-[11px] gap-1"><i class="fas fa-phone-alt"></i> Ganti HP</button>
+<button onclick="editUserAsAdmin('${user.phone}')" class="flex-1 py-2 rounded-xl bg-blue-50 text-blue-400 hover:bg-blue-100 transition-colors flex items-center justify-center font-bold text-[10px] md:text-[11px] gap-1"><i class="fas fa-edit"></i> Edit</button>
+<button onclick="hapusUserAsAdmin('${user.phone}')" class="flex-1 py-2 rounded-xl bg-red-50 text-red-400 hover:bg-red-100 transition-colors flex items-center justify-center font-bold text-[10px] md:text-[11px] gap-1"><i class="fas fa-trash-alt"></i> Hapus</button>
 </div>
 `;
 tbodyMob.appendChild(card);
 });
+}
+
+function bukaModalGantiHp(phone = null) {
+targetPhoneToChange = phone || currentUserPhone;
+document.getElementById('inputNewPhone').value = '';
+document.getElementById('modal-ganti-hp').classList.remove('hidden');
+document.getElementById('modal-ganti-hp').classList.add('flex');
+}
+
+function tutupModalGantiHp() {
+targetPhoneToChange = null;
+document.getElementById('modal-ganti-hp').classList.add('hidden');
+document.getElementById('modal-ganti-hp').classList.remove('flex');
+}
+
+async function prosesGantiHp() {
+const newPhone = document.getElementById('inputNewPhone').value;
+if (!newPhone || newPhone.trim() === '') {
+tampilkanModal('Nomor HP baru tidak boleh kosong!', false);
+return;
+}
+if (newPhone === targetPhoneToChange) {
+tampilkanModal('Nomor HP baru tidak boleh sama dengan yang lama!', false);
+return;
+}
+
+const btn = document.getElementById('btnProsesGantiHp');
+btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i>';
+btn.disabled = true;
+
+try {
+const response = await fetch(gasUrl, {
+method: 'POST',
+body: JSON.stringify({
+action: 'change_phone',
+oldPhone: targetPhoneToChange,
+newPhone: newPhone
+})
+});
+const result = await response.json();
+if (result.status === 'success') {
+tutupModalGantiHp();
+tampilkanModal('Nomor HP berhasil diubah!', false);
+
+if (currentUserPhone === targetPhoneToChange) {
+currentUserPhone = result.newPhone;
+localStorage.setItem('userPhone', result.newPhone);
+}
+
+if (isAdmin && !document.getElementById('adminDashboard').classList.contains('hidden')) {
+loadAdminDashboard();
+}
+} else {
+tampilkanModal(result.message, false);
+}
+} catch (e) {
+tampilkanModal('Gagal menghubungi server.', false);
+} finally {
+btn.innerHTML = 'Simpan';
+btn.disabled = false;
+}
 }
 
 function hapusUserAsAdmin(phone) {
@@ -988,6 +1115,8 @@ document.getElementById('btnBackAdminMobile').classList.add('hidden');
 document.getElementById('btnBackAdminDesktop').classList.add('hidden');
 document.getElementById('mainForm').classList.add('hidden');
 document.getElementById('progress-wrapper').classList.add('hidden');
+document.getElementById('mobileActionNav').classList.add('hidden');
+document.getElementById('mobileActionNav').classList.remove('flex');
 document.getElementById('userMobileNav').classList.add('hidden');
 document.getElementById('userMobileNav').classList.remove('flex');
 loadAdminDashboard();
@@ -1029,12 +1158,14 @@ const percentages = [0, 33.33, 66.66, 100];
 document.getElementById('tl-progress-bar').style.width = percentages[idx] + '%';
 tabs.forEach((tab, index) => {
 const dot = document.getElementById('dot-' + tab);
+if (dot) {
 if(index <= idx) {
 dot.classList.add('active');
 dot.classList.remove('inactive');
 } else {
 dot.classList.remove('active');
 dot.classList.add('inactive');
+}
 }
 });
 }
@@ -1052,28 +1183,43 @@ el.classList.remove('flex');
 });
 document.getElementById('mainForm').classList.remove('hidden');
 document.getElementById('mainForm').classList.add('flex');
+
+if (tabId === 'guestbook') {
+document.getElementById('progress-wrapper').classList.add('hidden');
+document.getElementById('progress-wrapper').classList.remove('md:block');
+
+document.getElementById('mobileActionNav').classList.remove('hidden');
+document.getElementById('mobileActionNav').classList.add('flex');
+
+document.getElementById('btnNextMobile').classList.add('hidden');
+document.getElementById('btnSubmitMobile').classList.add('hidden');
+document.getElementById('btnSubmitMobile').classList.remove('flex');
+
+const btnSubmitGb = document.getElementById('btnSubmitGuestbook');
+if(btnSubmitGb) {
+btnSubmitGb.classList.remove('hidden');
+btnSubmitGb.classList.add('flex');
+}
+} else {
 document.getElementById('progress-wrapper').classList.remove('hidden');
 document.getElementById('progress-wrapper').classList.add('md:block');
+
+document.getElementById('mobileActionNav').classList.remove('hidden');
+document.getElementById('mobileActionNav').classList.add('flex');
+
+const btnSubmitGb = document.getElementById('btnSubmitGuestbook');
+if(btnSubmitGb) {
+btnSubmitGb.classList.add('hidden');
+btnSubmitGb.classList.remove('flex');
+}
+
 updateTimeline(tabId);
-const activeSection = document.getElementById('section-' + tabId);
-activeSection.classList.remove('hidden');
-activeSection.classList.add('flex');
-document.querySelectorAll('.tab-btn').forEach(el => {
-el.classList.remove('active-tab');
-if (el.classList.contains('text-red-500')) return;
-el.classList.add('text-[#64748b]');
-});
-document.querySelectorAll('.btn-tab-' + tabId).forEach(activeBtn => {
-activeBtn.classList.add('active-tab');
-activeBtn.classList.remove('text-[#64748b]');
-});
-document.getElementById('mainForm').scrollTop = 0;
 
 currentTabIndex = mobileTabsOrder.indexOf(tabId);
 const btnNextMobile = document.getElementById('btnNextMobile');
 const btnSubmitMobile = document.getElementById('btnSubmitMobile');
 
-if (btnNextMobile && btnSubmitMobile) {
+if (btnNextMobile && btnSubmitMobile && currentTabIndex !== -1) {
 if (currentTabIndex === mobileTabsOrder.length - 1) {
 btnNextMobile.classList.add('hidden');
 btnSubmitMobile.classList.remove('hidden');
@@ -1084,6 +1230,21 @@ btnSubmitMobile.classList.remove('flex');
 btnNextMobile.classList.remove('hidden');
 }
 }
+}
+
+const activeSection = document.getElementById('section-' + tabId);
+activeSection.classList.remove('hidden');
+activeSection.classList.add('flex');
+document.querySelectorAll('.tab-btn').forEach(el => {
+el.classList.remove('active-tab');
+if (el.classList.contains('text-red-400')) return;
+el.classList.add('text-[#71717a]');
+});
+document.querySelectorAll('.btn-tab-' + tabId).forEach(activeBtn => {
+activeBtn.classList.add('active-tab');
+activeBtn.classList.remove('text-[#71717a]');
+});
+document.getElementById('mainForm').scrollTop = 0;
 }
 
 function tampilkanKonfirmasi() {
@@ -1097,7 +1258,7 @@ document.getElementById('modal-konfirmasi').classList.remove('flex');
 }
 
 function tampilkanModal(pesan, isProses = false) {
-document.getElementById('modal-info-desc').textContent = pesan;
+document.getElementById('modal-info-desc').innerHTML = pesan;
 const btnTutup = document.getElementById('btnTutupModal');
 if(isProses) {
 btnTutup.classList.add('hidden');
@@ -1137,7 +1298,7 @@ function renderTabelKado() {
 const tbody = document.getElementById('tabelKado');
 tbody.innerHTML = '';
 if(dataKado.length === 0) {
-tbody.innerHTML = '<div class="text-center text-[#64748b] font-medium text-[11px] md:text-[13px] py-4">Belum ada data kado</div>';
+tbody.innerHTML = '<div class="text-center text-[#71717a] font-medium text-[11px] md:text-[13px] py-4">Belum ada data kado</div>';
 return;
 }
 dataKado.forEach((item, index) => {
@@ -1145,7 +1306,108 @@ const logoUrl = item.logo || getBankLogo(item.bank);
 const logoHtml = logoUrl ? `<img src="${logoUrl}" alt="${item.bank}" class="h-4 md:h-5 object-contain mr-2">` : '';
 const div = document.createElement('div');
 div.className = 'bg-gray-50 border border-gray-200 px-5 py-4 md:px-6 md:py-5 flex justify-between items-center rounded-2xl md:rounded-3xl relative';
-div.innerHTML = '<div class="flex flex-col"><div class="flex items-center mb-1">' + logoHtml + '<span class="font-heading font-bold text-[12px] md:text-[15px] text-[#1e293b]">' + item.bank + '</span></div><span class="text-[10px] md:text-[12px] text-[#079790] font-extrabold font-mono">' + item.nomor + '</span><span class="text-[9px] md:text-[11px] text-[#64748b] uppercase font-bold mt-1">' + item.nama + '</span></div><button type="button" onclick="hapusKado(' + index + ')" class="w-8 h-8 md:w-10 md:h-10 flex items-center justify-center text-red-500 bg-white hover:bg-red-50 border border-red-100 rounded-full shrink-0 transition-colors"><i class="fas fa-trash-alt text-[10px] md:text-[12px]"></i></button>';
+div.innerHTML = '<div class="flex flex-col"><div class="flex items-center mb-1">' + logoHtml + '<span class="font-heading font-bold text-[12px] md:text-[15px] text-[#334155]">' + item.bank + '</span></div><span class="text-[10px] md:text-[12px] text-[#2a9d8f] font-extrabold font-mono">' + item.nomor + '</span><span class="text-[9px] md:text-[11px] text-[#71717a] uppercase font-bold mt-1">' + item.nama + '</span></div><button type="button" onclick="hapusKado(' + index + ')" class="w-8 h-8 md:w-10 md:h-10 flex items-center justify-center text-red-400 bg-white hover:bg-red-50 border border-red-100 rounded-full shrink-0 transition-colors"><i class="fas fa-trash-alt text-[10px] md:text-[12px]"></i></button>';
+tbody.appendChild(div);
+});
+}
+
+function simpanGuestbook() {
+const nama = document.getElementById('gbNama').value;
+const kehadiran = document.getElementById('gbKehadiran').value;
+const jumlah = document.getElementById('gbJumlah').value;
+const pesan = document.getElementById('gbPesan').value;
+
+if (nama.trim() === '' || pesan.trim() === '') {
+tampilkanModal('Nama dan Pesan wajib diisi!', false);
+return;
+}
+
+if (editGuestbookIndex === -1) {
+dataGuestbook.push({
+nama: nama,
+kehadiran: kehadiran,
+jumlah: jumlah,
+pesan: pesan,
+timestamp: new Date().getTime()
+});
+} else {
+dataGuestbook[editGuestbookIndex].nama = nama;
+dataGuestbook[editGuestbookIndex].kehadiran = kehadiran;
+dataGuestbook[editGuestbookIndex].jumlah = jumlah;
+dataGuestbook[editGuestbookIndex].pesan = pesan;
+editGuestbookIndex = -1;
+document.getElementById('btnSimpanGb').textContent = 'Tambah Ucapan';
+document.getElementById('btnBatalGb').classList.add('hidden');
+}
+
+batalEditGuestbook();
+renderTabelGuestbook();
+}
+
+function editGuestbook(index) {
+const gb = dataGuestbook[index];
+document.getElementById('gbNama').value = gb.nama;
+document.getElementById('gbKehadiran').value = gb.kehadiran;
+document.getElementById('gbJumlah').value = gb.jumlah;
+document.getElementById('gbPesan').value = gb.pesan;
+editGuestbookIndex = index;
+document.getElementById('btnSimpanGb').textContent = 'Update Ucapan';
+document.getElementById('btnBatalGb').classList.remove('hidden');
+}
+
+function hapusGuestbook(index) {
+dataGuestbook.splice(index, 1);
+renderTabelGuestbook();
+if (editGuestbookIndex === index) batalEditGuestbook();
+}
+
+function batalEditGuestbook() {
+document.getElementById('gbNama').value = '';
+document.getElementById('gbKehadiran').value = 'Hadir';
+document.getElementById('gbJumlah').value = '1';
+document.getElementById('gbPesan').value = '';
+editGuestbookIndex = -1;
+document.getElementById('btnSimpanGb').textContent = 'Tambah Ucapan';
+document.getElementById('btnBatalGb').classList.add('hidden');
+}
+
+function renderTabelGuestbook() {
+const tbody = document.getElementById('tabelGuestbook');
+tbody.innerHTML = '';
+if (dataGuestbook.length === 0) {
+tbody.innerHTML = '<div class="text-center text-[#71717a] font-medium text-[11px] md:text-[13px] py-4">Belum ada data ucapan</div>';
+return;
+}
+
+const sortedData = [...dataGuestbook].sort((a, b) => b.timestamp - a.timestamp);
+
+sortedData.forEach((item) => {
+const originalIndex = dataGuestbook.indexOf(item);
+const div = document.createElement('div');
+div.className = 'bg-gray-50 border border-gray-200 p-4 md:p-5 flex flex-col md:flex-row justify-between rounded-2xl md:rounded-3xl relative gap-3';
+let iconBadge = '';
+if (item.kehadiran === 'Hadir') {
+iconBadge = '<span class="text-[9px] bg-green-100 text-green-700 px-2 py-0.5 rounded-full font-bold ml-2"><i class="fas fa-check-circle mr-1"></i>Hadir</span>';
+} else if (item.kehadiran === 'Tidak Hadir') {
+iconBadge = '<span class="text-[9px] bg-red-100 text-red-700 px-2 py-0.5 rounded-full font-bold ml-2"><i class="fas fa-times-circle mr-1"></i>Tidak Hadir</span>';
+} else {
+iconBadge = '<span class="text-[9px] bg-yellow-100 text-yellow-700 px-2 py-0.5 rounded-full font-bold ml-2"><i class="fas fa-question-circle mr-1"></i>Masih Ragu</span>';
+}
+
+div.innerHTML = `
+<div class="flex flex-col flex-1">
+<div class="flex items-center mb-1">
+<span class="font-heading font-bold text-[13px] md:text-[15px] text-[#334155]">${item.nama}</span>
+${iconBadge}
+<span class="text-[9px] text-gray-500 font-bold ml-2"><i class="fas fa-users mr-1"></i>${item.jumlah} Orang</span>
+</div>
+<p class="text-[11px] md:text-[12px] text-[#71717a] mt-1 italic">"${item.pesan}"</p>
+</div>
+<div class="flex gap-2 shrink-0 self-end md:self-center mt-2 md:mt-0">
+<button type="button" onclick="editGuestbook(${originalIndex})" class="w-8 h-8 flex items-center justify-center text-blue-400 bg-white hover:bg-blue-50 border border-blue-100 rounded-full transition-colors"><i class="fas fa-edit text-[11px]"></i></button>
+<button type="button" onclick="hapusGuestbook(${originalIndex})" class="w-8 h-8 flex items-center justify-center text-red-400 bg-white hover:bg-red-50 border border-red-100 rounded-full transition-colors"><i class="fas fa-trash-alt text-[11px]"></i></button>
+</div>
+`;
 tbody.appendChild(div);
 });
 }
@@ -1199,11 +1461,14 @@ document.getElementById('rowIndicatorMobile').textContent = '';
 document.getElementById('rowIndicatorDesktop').textContent = '';
 dataKado = [];
 renderTabelKado();
+dataGuestbook = [];
+renderTabelGuestbook();
+batalEditGuestbook();
 }
 
 async function loadDataByKode() {
 if (!currentUserPhone) return;
-tampilkanModal('Memuat data undangan...', true);
+tampilkanModal('<span class="text-[11px] md:text-[13px]">Memuat data undangan...</span>', true);
 try {
 const response = await fetch(gasUrl + '?action=getData&kode=Undangan&phone=' + currentUserPhone);
 const result = await response.json();
@@ -1304,6 +1569,10 @@ document.getElementById('noHpWa').value = waData;
 
 dataKado = result.kado || [];
 renderTabelKado();
+
+dataGuestbook = result.guestbook || [];
+renderTabelGuestbook();
+
 } else if (result.status === 'empty') {
 editRowId = null;
 resetFormFields();
@@ -1333,10 +1602,18 @@ document.getElementById('atasNama').value = '';
 renderTabelKado();
 }
 
+const gbPendingNama = document.getElementById('gbNama').value;
+const gbPendingPesan = document.getElementById('gbPesan').value;
+if(gbPendingNama.trim() !== '' && gbPendingPesan.trim() !== '') {
+simpanGuestbook();
+}
+
 const btnSubmitDesktop = document.getElementById('btnSubmitDesktop');
 const btnSubmitMobile = document.getElementById('btnSubmitMobile');
+const btnSubmitGuestbook = document.getElementById('btnSubmitGuestbook');
 const originalTextDesktop = btnSubmitDesktop ? btnSubmitDesktop.innerHTML : '';
 const originalTextMobile = btnSubmitMobile ? btnSubmitMobile.innerHTML : '';
+const originalTextGb = btnSubmitGuestbook ? btnSubmitGuestbook.innerHTML : '';
 
 if(btnSubmitDesktop) {
 btnSubmitDesktop.innerHTML = '<i class="fas fa-spinner fa-spin w-5 text-center md:text-[18px]"></i> <span>MENGIRIM</span>';
@@ -1344,10 +1621,16 @@ btnSubmitDesktop.classList.add('btn-processing');
 btnSubmitDesktop.disabled = true;
 }
 
-if(btnSubmitMobile) {
+if(btnSubmitMobile && !btnSubmitMobile.classList.contains('hidden')) {
 btnSubmitMobile.innerHTML = '<i class="fas fa-spinner fa-spin text-[16px]"></i> Proses';
 btnSubmitMobile.classList.add('btn-processing');
 btnSubmitMobile.disabled = true;
+}
+
+if(btnSubmitGuestbook && !btnSubmitGuestbook.classList.contains('hidden')) {
+btnSubmitGuestbook.innerHTML = '<i class="fas fa-spinner fa-spin text-[16px]"></i> Proses';
+btnSubmitGuestbook.classList.add('btn-processing');
+btnSubmitGuestbook.disabled = true;
 }
 
 try {
@@ -1407,6 +1690,7 @@ alamat: document.getElementById('alamatResepsi').value,
 map: document.getElementById('mapResepsi').value
 },
 kado: dataKado,
+guestbook: dataGuestbook,
 kontak: {
 wa: waFinal
 }
@@ -1436,6 +1720,11 @@ if(btnSubmitMobile) {
 btnSubmitMobile.innerHTML = originalTextMobile;
 btnSubmitMobile.classList.remove('btn-processing');
 btnSubmitMobile.disabled = false;
+}
+if(btnSubmitGuestbook) {
+btnSubmitGuestbook.innerHTML = originalTextGb;
+btnSubmitGuestbook.classList.remove('btn-processing');
+btnSubmitGuestbook.disabled = false;
 }
 }
 }
