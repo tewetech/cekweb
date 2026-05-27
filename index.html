@@ -622,7 +622,6 @@ Tambah Kado
 </div>
 <div class="md:col-span-4 flex gap-3">
 <button type="button" onclick="simpanGuestbook()" id="btnSimpanGb" class="flex-1 py-3 bg-[#2a9d8f] hover:bg-[#21867a] text-white rounded-xl text-[11px] md:text-[13px] font-extrabold uppercase tracking-widest transition-colors">Tambah Ucapan</button>
-<button type="button" onclick="batalEditGuestbook()" id="btnBatalGb" class="hidden py-3 px-6 bg-gray-100 hover:bg-gray-200 text-gray-600 rounded-xl text-[11px] md:text-[13px] font-extrabold uppercase tracking-widest transition-colors">Batal</button>
 </div>
 </div>
 <div id="tabelGuestbook" class="flex flex-col gap-4">
@@ -663,6 +662,36 @@ Tambah Kado
 <i class="fas fa-sign-out-alt text-[12px] mb-0.5"></i> Keluar
 </button>
 </nav>
+
+<div id="modal-edit-guestbook" class="fixed inset-0 z-[200] hidden items-center justify-center bg-slate-900/60 backdrop-blur-md transition-opacity p-4">
+<div class="bg-white p-6 md:p-8 rounded-[30px] w-full max-w-[340px] relative flex flex-col shadow-2xl border border-gray-100">
+<h3 class="text-[#334155] font-heading font-bold text-[16px] mb-4 text-center">Edit Ucapan</h3>
+<div class="float-container mb-4">
+<input type="text" id="editGbNama" class="float-input" placeholder=" ">
+<label class="float-label">Nama Tamu</label>
+</div>
+<div class="float-container mb-4">
+<select id="editGbKehadiran" class="float-input">
+<option value="Hadir">Hadir</option>
+<option value="Tidak Hadir">Tidak Hadir</option>
+<option value="Masih Ragu">Masih Ragu</option>
+</select>
+<label class="float-label">Kehadiran</label>
+</div>
+<div class="float-container mb-4">
+<input type="number" id="editGbJumlah" class="float-input" placeholder=" " min="1">
+<label class="float-label">Jumlah Orang</label>
+</div>
+<div class="float-container mb-4">
+<input type="text" id="editGbPesan" class="float-input" placeholder=" ">
+<label class="float-label">Pesan / Ucapan</label>
+</div>
+<div class="flex gap-4 w-full mt-2">
+<button type="button" onclick="tutupModalEditGuestbook()" class="flex-1 py-3 rounded-full bg-gray-100 hover:bg-gray-200 text-gray-600 font-bold text-[12px] uppercase transition-colors">Batal</button>
+<button type="button" onclick="simpanEditGuestbook()" class="flex-1 py-3 rounded-full bg-[#2a9d8f] hover:bg-[#21867a] text-white shadow-md font-bold text-[12px] uppercase transition-colors">Simpan</button>
+</div>
+</div>
+</div>
 
 <div id="modal-ganti-hp" class="fixed inset-0 z-[200] hidden items-center justify-center bg-slate-900/60 backdrop-blur-md transition-opacity p-4">
 <div class="bg-white p-6 md:p-8 rounded-[30px] w-full max-w-[340px] relative flex flex-col shadow-2xl border border-gray-100">
@@ -721,7 +750,7 @@ Tambah Kado
 const gasUrl = "https://script.google.com/macros/s/AKfycbw5ZuRWka6tupBD1sJCmAuA_JeB5SqKU8PBjAThN_HZ5wgHdZduoW4ipYvuHUDj1Wd2/exec";
 let dataKado = [];
 let dataGuestbook = [];
-let editGuestbookIndex = -1;
+let activeEditGbIndex = -1;
 let editRowId = null;
 let currentUserPhone = localStorage.getItem('userPhone');
 let isAdmin = localStorage.getItem('adminMode') === 'true';
@@ -1322,7 +1351,6 @@ tampilkanModal('Nama dan Pesan wajib diisi!', false);
 return;
 }
 
-if (editGuestbookIndex === -1) {
 dataGuestbook.push({
 nama: nama,
 kehadiran: kehadiran,
@@ -1330,45 +1358,58 @@ jumlah: jumlah,
 pesan: pesan,
 timestamp: new Date().getTime()
 });
-} else {
-dataGuestbook[editGuestbookIndex].nama = nama;
-dataGuestbook[editGuestbookIndex].kehadiran = kehadiran;
-dataGuestbook[editGuestbookIndex].jumlah = jumlah;
-dataGuestbook[editGuestbookIndex].pesan = pesan;
-editGuestbookIndex = -1;
-document.getElementById('btnSimpanGb').textContent = 'Tambah Ucapan';
-document.getElementById('btnBatalGb').classList.add('hidden');
-}
 
-batalEditGuestbook();
+document.getElementById('gbNama').value = '';
+document.getElementById('gbKehadiran').value = 'Hadir';
+document.getElementById('gbJumlah').value = '1';
+document.getElementById('gbPesan').value = '';
+
 renderTabelGuestbook();
 }
 
 function editGuestbook(index) {
 const gb = dataGuestbook[index];
-document.getElementById('gbNama').value = gb.nama;
-document.getElementById('gbKehadiran').value = gb.kehadiran;
-document.getElementById('gbJumlah').value = gb.jumlah;
-document.getElementById('gbPesan').value = gb.pesan;
-editGuestbookIndex = index;
-document.getElementById('btnSimpanGb').textContent = 'Update Ucapan';
-document.getElementById('btnBatalGb').classList.remove('hidden');
+document.getElementById('editGbNama').value = gb.nama;
+document.getElementById('editGbKehadiran').value = gb.kehadiran;
+document.getElementById('editGbJumlah').value = gb.jumlah;
+document.getElementById('editGbPesan').value = gb.pesan;
+activeEditGbIndex = index;
+
+document.getElementById('modal-edit-guestbook').classList.remove('hidden');
+document.getElementById('modal-edit-guestbook').classList.add('flex');
+}
+
+function tutupModalEditGuestbook() {
+activeEditGbIndex = -1;
+document.getElementById('modal-edit-guestbook').classList.add('hidden');
+document.getElementById('modal-edit-guestbook').classList.remove('flex');
+}
+
+function simpanEditGuestbook() {
+if (activeEditGbIndex === -1) return;
+
+const nama = document.getElementById('editGbNama').value;
+const kehadiran = document.getElementById('editGbKehadiran').value;
+const jumlah = document.getElementById('editGbJumlah').value;
+const pesan = document.getElementById('editGbPesan').value;
+
+if (nama.trim() === '' || pesan.trim() === '') {
+tampilkanModal('Nama dan Pesan wajib diisi!', false);
+return;
+}
+
+dataGuestbook[activeEditGbIndex].nama = nama;
+dataGuestbook[activeEditGbIndex].kehadiran = kehadiran;
+dataGuestbook[activeEditGbIndex].jumlah = jumlah;
+dataGuestbook[activeEditGbIndex].pesan = pesan;
+
+tutupModalEditGuestbook();
+renderTabelGuestbook();
 }
 
 function hapusGuestbook(index) {
 dataGuestbook.splice(index, 1);
 renderTabelGuestbook();
-if (editGuestbookIndex === index) batalEditGuestbook();
-}
-
-function batalEditGuestbook() {
-document.getElementById('gbNama').value = '';
-document.getElementById('gbKehadiran').value = 'Hadir';
-document.getElementById('gbJumlah').value = '1';
-document.getElementById('gbPesan').value = '';
-editGuestbookIndex = -1;
-document.getElementById('btnSimpanGb').textContent = 'Tambah Ucapan';
-document.getElementById('btnBatalGb').classList.add('hidden');
 }
 
 function renderTabelGuestbook() {
@@ -1463,7 +1504,6 @@ dataKado = [];
 renderTabelKado();
 dataGuestbook = [];
 renderTabelGuestbook();
-batalEditGuestbook();
 }
 
 async function loadDataByKode() {
