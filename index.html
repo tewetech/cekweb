@@ -251,7 +251,6 @@ font-size: 9px;
 
 <div id="authScreen" class="fixed inset-0 z-[200] flex items-center justify-center bg-slate-900/60 backdrop-blur-md transition-opacity p-4">
 <div class="bg-white p-8 md:p-10 rounded-[30px] w-full max-w-[340px] md:max-w-[400px] shadow-2xl border border-gray-100 relative overflow-hidden">
-<div class="absolute top-0 left-0 w-full h-2 bg-[#2a9d8f]"></div>
 <div class="text-center mb-8 mt-2">
 <h2 class="text-[20px] md:text-[24px] font-heading font-black tracking-tight text-[#334155]">FORMULIR<span class="text-[#2a9d8f]"> MEMPELAI</span></h2>
 <p class="text-[#71717a] text-[12px] font-bold mt-1">semoga sakinah mawaddah warahmah</p>
@@ -433,7 +432,7 @@ font-size: 9px;
 </div>
 <div class="float-container">
 <input type="text" id="putriKe" class="float-input" placeholder=" ">
-<label class="float-label">Putri Ke (Contoh: 1 / Pertama)</label>
+<label class="float-label">Putri Ke (Contoh: 1)</label>
 </div>
 </div>
 </div>
@@ -461,7 +460,7 @@ font-size: 9px;
 </div>
 <div class="float-container">
 <input type="text" id="putraKe" class="float-input" placeholder=" ">
-<label class="float-label">Putra Ke (Contoh: 2 / Kedua)</label>
+<label class="float-label">Putra Ke (Contoh: 4)</label>
 </div>
 </div>
 </div>
@@ -476,20 +475,20 @@ font-size: 9px;
 <label class="absolute left-4 top-3 text-[10px] md:text-[11px] font-bold text-[#2a9d8f]"><i class="fas fa-female text-pink-400 mr-2"></i>Foto Pengantin Wanita</label>
 <input type="file" id="linkFotoWanita" accept="image/*" class="w-full mt-1">
 <div id="previewFotoWanita" class="mt-4 hidden p-2 bg-gray-50 border border-gray-200 rounded-2xl w-fit">
-<img id="imgWanita" class="w-32 md:w-40 h-auto object-cover rounded-xl" />
+<img id="imgWanita" class="w-32 md:w-40 h-auto object-cover rounded-xl cursor-pointer" onclick="bukaPreviewFoto(this.src)" />
 </div>
 </div>
 <div class="relative bg-white border border-[#e2e8f0] rounded-xl p-4 pt-8 shadow-sm transition-all hover:border-[#2a9d8f]">
 <label class="absolute left-4 top-3 text-[10px] md:text-[11px] font-bold text-[#2a9d8f]"><i class="fas fa-male text-blue-400 mr-2"></i>Foto Pengantin Pria</label>
 <input type="file" id="linkFotoPria" accept="image/*" class="w-full mt-1">
 <div id="previewFotoPria" class="mt-4 hidden p-2 bg-gray-50 border border-gray-200 rounded-2xl w-fit">
-<img id="imgPria" class="w-32 md:w-40 h-auto object-cover rounded-xl" />
+<img id="imgPria" class="w-32 md:w-40 h-auto object-cover rounded-xl cursor-pointer" onclick="bukaPreviewFoto(this.src)" />
 </div>
 </div>
 <div class="relative bg-white border border-[#e2e8f0] rounded-xl p-4 pt-8 shadow-sm transition-all hover:border-[#2a9d8f]">
 <label class="absolute left-4 top-3 text-[10px] md:text-[11px] font-bold text-[#2a9d8f]"><i class="fas fa-images text-[#2a9d8f] mr-2"></i>Foto Album (Opsional)</label>
 <input type="file" id="linkFolderAlbum" accept="image/*" multiple class="w-full mt-1">
-<div id="previewFotoAlbum" class="mt-4 hidden flex-wrap gap-3 p-3 bg-gray-50 border border-gray-200 rounded-2xl w-full"></div>
+<div id="previewFotoAlbum" class="mt-4 hidden flex flex-nowrap overflow-x-auto gap-4 p-4 bg-gray-50 border border-gray-200 rounded-2xl w-full custom-scrollbar items-center"></div>
 </div>
 </div>
 </div>
@@ -695,7 +694,8 @@ Tambah Kado
 
 <div id="modal-ganti-hp" class="fixed inset-0 z-[200] hidden items-center justify-center bg-slate-900/60 backdrop-blur-md transition-opacity p-4">
 <div class="bg-white p-6 md:p-8 rounded-[30px] w-full max-w-[340px] relative flex flex-col shadow-2xl border border-gray-100">
-<h3 class="text-[#334155] font-heading font-bold text-[16px] mb-4 text-center">Ganti Nomor HP</h3>
+<h3 class="text-[#334155] font-heading font-bold text-[16px] mb-1 text-center">Ganti Nomor HP</h3>
+<p class="text-center text-[#71717a] text-[12px] font-medium mb-4">Nomor saat ini: <span id="currentPhoneDisplay" class="font-bold text-[#2a9d8f]"></span></p>
 <div class="float-container mb-4">
 <input type="text" inputmode="numeric" pattern="[0-9]*" oninput="this.value = this.value.replace(/[^0-9]/g, '')" id="inputNewPhone" class="float-input" placeholder=" ">
 <label class="float-label">Nomor HP Baru</label>
@@ -743,6 +743,13 @@ Tambah Kado
 <button type="button" onclick="batalHapusUser()" class="flex-1 py-3 md:py-4 rounded-full bg-gray-100 hover:bg-gray-200 text-gray-600 font-bold text-[11px] md:text-[13px] uppercase tracking-wider transition-colors">Batal</button>
 <button type="button" onclick="lanjutHapusUser()" class="flex-1 py-3 md:py-4 rounded-full bg-red-400 hover:bg-red-500 text-white shadow-md font-bold text-[11px] md:text-[13px] uppercase tracking-wider transition-colors">Hapus</button>
 </div>
+</div>
+</div>
+
+<div id="modal-preview-foto" class="fixed inset-0 z-[300] hidden items-center justify-center bg-slate-900/80 backdrop-blur-sm transition-opacity p-4" onclick="tutupPreviewFoto()">
+<div class="relative max-w-full max-h-full flex items-center justify-center">
+<button type="button" class="absolute -top-10 right-0 text-white hover:text-gray-300 z-10 p-2" onclick="tutupPreviewFoto()"><i class="fas fa-times text-[24px]"></i></button>
+<img id="img-preview-full" src="" class="max-w-full max-h-[85vh] object-contain rounded-xl shadow-2xl" onclick="event.stopPropagation()">
 </div>
 </div>
 
@@ -1003,6 +1010,10 @@ tbodyMob.appendChild(card);
 
 function bukaModalGantiHp(phone = null) {
 targetPhoneToChange = phone || currentUserPhone;
+const currentPhoneDisplay = document.getElementById('currentPhoneDisplay');
+if (currentPhoneDisplay) {
+currentPhoneDisplay.textContent = targetPhoneToChange || '-';
+}
 document.getElementById('inputNewPhone').value = '';
 document.getElementById('modal-ganti-hp').classList.remove('hidden');
 document.getElementById('modal-ganti-hp').classList.add('flex');
@@ -1041,11 +1052,12 @@ newPhone: newPhone
 const result = await response.json();
 if (result.status === 'success') {
 tutupModalGantiHp();
-tampilkanModal('Nomor HP berhasil diubah!', false);
+tampilkanModal('Nomor HP berhasil diubah, silahkan coba masuk lagi.', false);
 
 if (currentUserPhone === targetPhoneToChange) {
 currentUserPhone = result.newPhone;
 localStorage.setItem('userPhone', result.newPhone);
+loadDataByKode();
 }
 
 if (isAdmin && !document.getElementById('adminDashboard').classList.contains('hidden')) {
@@ -1301,6 +1313,19 @@ document.getElementById('modal-info').classList.add('flex');
 function tutupModal() {
 document.getElementById('modal-info').classList.add('hidden');
 document.getElementById('modal-info').classList.remove('flex');
+}
+
+function bukaPreviewFoto(src) {
+if(!src) return;
+document.getElementById('img-preview-full').src = src;
+document.getElementById('modal-preview-foto').classList.remove('hidden');
+document.getElementById('modal-preview-foto').classList.add('flex');
+}
+
+function tutupPreviewFoto() {
+document.getElementById('modal-preview-foto').classList.add('hidden');
+document.getElementById('modal-preview-foto').classList.remove('flex');
+document.getElementById('img-preview-full').src = '';
 }
 
 function tambahKado() {
@@ -1567,7 +1592,8 @@ const idA = extractDriveId(alUrl);
 if(idA) {
 const aImg = document.createElement('img');
 aImg.src = 'https://drive.google.com/thumbnail?id=' + idA + '&sz=w1000';
-aImg.className = 'w-20 md:w-24 h-20 md:h-24 object-cover rounded-xl';
+aImg.className = 'w-16 h-16 md:w-20 md:h-20 object-cover rounded-xl shrink-0 cursor-pointer shadow-sm';
+aImg.onclick = function() { bukaPreviewFoto(this.src); };
 prevA.appendChild(aImg);
 }
 });
